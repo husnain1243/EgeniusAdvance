@@ -20,7 +20,6 @@ body {
     width: 1766px;
     height: 768px;
     overflow: hidden;
-    margin-top: calc(25% - 384px);
 }
 
 .fauxBody,
