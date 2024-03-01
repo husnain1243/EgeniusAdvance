@@ -45,12 +45,12 @@
     });
   })(jQuery);
 var bgArr = [
-	'url(./assets/fauxBG.png)',
-	'url(./assets/fauxBG1.png)',
-	'url(./assets/fauxBG2.png)',
-	'url(./assets/fauxBG3.png)',
-	'url(./assets/fauxBG4.png)',
-	'url(./assets/fauxBG5.png)'	
+	"url('./assets/fauxBG.png')",
+	"url('./assets/fauxBG1.png')",
+	"url('./assets/fauxBG2.png')",
+	"url('./assets/fauxBG3.png')",
+	"url('./assets/fauxBG4.png')",
+	"url('./assets/fauxBG5.png')"
 ];
 
 var cacheImg = [
