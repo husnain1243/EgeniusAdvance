@@ -45,23 +45,23 @@
     });
   })(jQuery);
 var bgArr = [
-	'url(/assets/fauxBG.png)',
-	'url(/assets/fauxBG1.png)',
-	'url(/assets/fauxBG2.png)',
-	'url(/assets/fauxBG3.png)',
-	'url(/assets/fauxBG4.png)',
-	'url(/assets/fauxBG5.png)'	
+	'url(./assets/fauxBG.png)',
+	'url(./assets/fauxBG1.png)',
+	'url(./assets/fauxBG2.png)',
+	'url(./assets/fauxBG3.png)',
+	'url(./assets/fauxBG4.png)',
+	'url(./assets/fauxBG5.png)'	
 ];
 
 var cacheImg = [
-    '/assets/fauxBG.png',
-	'/assets/fauxBG1.png',
-	'/assets/fauxBG2.png',
-	'/assets/fauxBG3.png',
-	'/assets/fauxBG4.png',
-	'/assets/welcomeRing1G.png',
-    '/assets/welcomeRing2G.png',
-    '/assets/welcomeRing3G.png'
+    './assets/fauxBG.png',
+	'./assets/fauxBG1.png',
+	'./assets/fauxBG2.png',
+	'./assets/fauxBG3.png',
+	'./assets/fauxBG4.png',
+	'./assets/welcomeRing1G.png',
+    './assets/welcomeRing2G.png',
+    './assets/welcomeRing3G.png'
 ];
 
 var unsliderArr = ['.cogErgo','.typography','.exDes','.resMeth','.openEl','.phyComp','.desProj'];

@@ -11,7 +11,7 @@ body {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    background-image: url(/assets/CarbonFiber_2.jpg);
+    background-image: url(./assets/CarbonFiber_2.jpg);
     vertical-align: middle;
 }
 #wrapper {
@@ -71,7 +71,7 @@ a:hover{
     height: 205px;
     position: absolute;
     z-index: -40;
-    background-image: url(/assets/bgAnim1.png);
+    background-image: url(./assets/bgAnim1.png);
 }
 
 .bgAnimRing2 {
@@ -82,7 +82,7 @@ a:hover{
     height: 550px;
     position: absolute;
     z-index: -40;
-    background-image: url(/assets/bgAnim2.png);
+    background-image: url(./assets/bgAnim2.png);
 }
 
 .bgAnimRing3 {
@@ -101,7 +101,7 @@ a:hover{
     left: 1180px;
     width: 150px;
     height: 50px;
-    background-image: url(/assets/singraph.png);
+    background-image: url(./assets/singraph.png);
 }
 
 .welcomeRings {
@@ -118,7 +118,7 @@ a:hover{
     left: 150px;
     width: 400px;
     height: 400px;
-    background-image: url(/assets/welcomeRing1R.png);
+    background-image: url(./assets/welcomeRing1R.png);
     background-repeat: no-repeat;
 }
 
@@ -129,7 +129,7 @@ a:hover{
     height: 600px;
     top: 50px;
     left: 50px;
-    background-image: url(/assets/welcomeRing2R.png);
+    background-image: url(./assets/welcomeRing2R.png);
     background-repeat: no-repeat;
 }
 
@@ -138,7 +138,7 @@ a:hover{
     position: absolute;
     width: 700px;
     height: 700px;
-    background-image: url(/assets/welcomeRing3R.png);
+    background-image: url(./assets/welcomeRing3R.png);
     background-repeat: no-repeat;
 }
 
@@ -148,7 +148,7 @@ a:hover{
     height: 110px;
     top: 294px;
     left: 296px;
-    background-image: url(/assets/lock.png);
+    background-image: url(./assets/lock.png);
     background-repeat: no-repeat;
 }
 
@@ -158,7 +158,7 @@ a:hover{
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
-    background-image: url(/assets/popup.png);
+    background-image: url(./assets/popup.png);
     font-family: "Ariel", "Myriad Pro", "Trebuchet", sans-serif;
     font-size: 14px;
 }
@@ -202,14 +202,14 @@ a:hover{
     width: 330px;
     height: 100px;
     clear: both;
-    background-image: url(/assets/sideLiBG.png);
+    background-image: url(./assets/sideLiBG.png);
     background-repeat: no-repeat;
 }
 
 .sideBarUl li:hover {
     cursor: pointer;
     color: #fff;
-    background-image: url(/assets/sideLiBGHover.png);
+    background-image: url(./assets/sideLiBGHover.png);
 }
 
 /*----------------------------------Footer-----------------------------------*/
@@ -219,7 +219,7 @@ a:hover{
     width: 1366px;
     position: absolute;
     top: 648px;
-    background-image: url(/assets/footer.png);
+    background-image: url(./assets/footer.png);
     z-index: 0;
 }
 
@@ -272,7 +272,7 @@ a:hover{
     height: 70px;
     margin-left: -40px;
     float: left;
-    background-image: url(/assets/footerGraph.png);
+    background-image: url(./assets/footerGraph.png);
 }
 
 /*----------------------------------Image Gallery-----------------------------------*/
@@ -290,7 +290,7 @@ a:hover{
     position: absolute;
     width: 1220px;
     height: 620px;
-    background-image: url(/assets/imageGalBorder.png);
+    background-image: url(./assets/imageGalBorder.png);
     background-repeat: no-repeat;
     background-color: transparent;
     overflow: hidden;
