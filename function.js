@@ -44,6 +44,7 @@
       }
     });
   })(jQuery);
+var footer_back_img = "url('./assets/footer.png')";
 var bgArr = [
 	"url('./assets/fauxBG.png')",
 	"url('./assets/fauxBG1.png')",
@@ -180,6 +181,7 @@ function hideWelcomeRings(){
 
 function cycleBG(){
 	$(".welcomeRings").remove();
+	$(".footerImg").css({'background-image':footer_back_img})
 	var count1 = count2 = count3 = 0;
 	var fauxBody1 = setInterval(function(){
 		if(count1 == 6){
@@ -521,3 +523,23 @@ function get(url) {
     req.send();
   });
 }
+
+
+const animateBtn = document.getElementById("animate-a");
+
+const keyframes = [
+  { transform: "scale(1)" },
+  { transform: "scale(1.2)" },
+  { transform: "scale(1)" },
+];
+
+const options = {
+  duration: 2000,
+  iterations: Infinity,
+  easing: "ease-in-out",
+  fill: "forwards",
+};
+
+const animation = animateBtn.animate(keyframes, options);
+
+animation.play();

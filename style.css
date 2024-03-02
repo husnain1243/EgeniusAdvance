@@ -149,6 +149,7 @@ a:hover{
     left: 296px;
     background-image: url(./assets/lock.png);
     background-repeat: no-repeat;
+    cursor: pointer;
 }
 
 .popup {
@@ -218,7 +219,7 @@ a:hover{
     width: 1366px;
     position: absolute;
     top: 648px;
-    background-image: url(./assets/footer.png);
+    /* background-image: url(./assets/footer.png); */
     z-index: 0;
 }
 
