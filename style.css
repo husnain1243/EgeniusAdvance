@@ -317,6 +317,7 @@ a:hover{
     background-image: url(./assets/imageGalBorder.png);
     background-repeat: no-repeat;
     background-color: transparent;
+    background-size: contain;
     overflow: hidden;
     z-index: 30;
     left: 0px;
@@ -427,12 +428,14 @@ a:hover{
         bottom: 10px;
     }
     .semText {
-        top: 0px;
+        top: -20px;
+        font-size: 22px;
     }
     .juryText {
         right: unset;
         left: 30px;
         bottom: -10px;
+        font-size: 25px;
     }
     #imgGalMid {
         width: 70%;
@@ -445,5 +448,8 @@ a:hover{
     }
     #imgGalMid h3{
         font-size: 18px;
+    }
+    #imgGalOut {
+        height: 500px;
     }
 }
