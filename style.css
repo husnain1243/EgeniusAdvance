@@ -155,7 +155,7 @@ a:hover{
     height: 700px;
     background-image: url(./assets/welcomeRing3R.png);
     background-repeat: no-repeat;
-    background-position: cover;
+    background-size: cover;
     left: 0px;
     right: 0px;
     margin:  0 auto;
@@ -169,7 +169,7 @@ a:hover{
     left: 0px;
     background-image: url(./assets/lock.png);
     background-repeat: no-repeat;
-    background-position: cover;
+    background-size: cover;
     cursor: pointer;
     right: 0px;
     margin: 0 auto;
