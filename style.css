@@ -439,4 +439,10 @@ a:hover{
     #imgGalCont{
         left: 50px !important;
     }
+    #imgGalIn h2{
+        font-size: 22px;
+    }
+    #imgGalMid h3{
+        font-size: 18px;
+    }
 }
