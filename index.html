@@ -55,6 +55,7 @@
     #AnimationnContainer a:hover{
         color: #fff;
         text-decoration: underline;
+        cursor: pointer;
     }
     #AnimationnContainer{
         overflow: hidden;
@@ -192,6 +193,14 @@
         0% { left: -100%;}
         100% { left: 0;}
     }
+    #AnimationnContainer .hide_imageGalBorder
+    {
+        animation: hide_imageGalBorder 1s ease forwards;
+    }
+    @keyframes hide_imageGalBorder {
+        0% { opacity: 1; transform: scale(1);}
+        100% { opacity: 0;  transform: scale(2);}
+    }
     #AnimationnContainer #imageGalBorder .image-container #ContentContainer{
         position: absolute;
         top: 20px;
@@ -212,6 +221,13 @@
         overflow: hidden;
         animation: firststage-in 3s ease forwards;
         opacity: 0.7;
+    }
+    #AnimationnContainer .hide_singraph{
+        animation: hide-it 0.5s ease forwards;
+    }
+    @keyframes hide-it {
+        0% { right: 50px;}
+        100% { right: -300px;}
     }
     #AnimationnContainer #singraphImg{
         position: relative;
@@ -258,7 +274,33 @@
         z-index: 20;
         animation: firststage-in 3s ease forwards;
     }
-
+    #AnimationnContainer .hide_footerBG,
+    #AnimationnContainer .hide_footerGraph,
+    .hide_FooterMainText{
+        animation: hide_FooterMainText 0.5s ease forwards !important;
+    }
+    @keyframes hide_FooterMainText {
+        0% { bottom: 0px;}
+        100% { bottom: -100px;}
+    }
+    #AnimationnContainer .hide_Navbar{
+        animation: hide_Navbar 1s ease forwards !important;
+    }
+    @keyframes hide_Navbar {
+        0% { left: -170px;}
+        50% { left: 0px;}
+        100% { left: -200px;}
+    }
+    #AnimationnContainer  .hide_main-rig{
+        animation: hide_main-ring 1s ease forwards !important;
+    }
+    @keyframes hide_main-ring  {
+        0% { opacity: 1;}
+        25% { opacity: 0.75;}
+        50% { opacity: 0.5;}
+        75% { opacity: 0.25;}
+        100% { opacity: 0;}
+    }
     @media only screen and (max-width: 767.98px){
         #AnimationnContainer{
             height: 90vh;
@@ -330,237 +372,281 @@
 
   <script>
 
-      WelcomeRig();
+    WelcomeRig();
 
-      function WelcomeRig() {
-          document.querySelector('.MainRigContainer').style.display = 'none';
-          const div = document.querySelector('.main-container');
-          div.innerHTML += '<div id="WelcomeRingLock" class="WelcomeRingLock"><img id="WelcomeRingLockImg" class="shrink" src="./assets/WelcomeRingLock.png" width="40px" height="40px"/></div>';
-          div.innerHTML += '<div id="welcomeRing1" class="welcomeRing1"><img id="welcomeRing1Img" class="shrink" src="./assets/WelcomeRing1.png" width="200px" height="200px"/></div>';
-          div.innerHTML += '<div id="welcomeRing2" class="welcomeRing2"><img id="welcomeRing2Img" class="shrink" src="./assets/WelcomeRing2.png" width="300px" height="300px"/></div>';
-          div.innerHTML += '<div id="welcomeRing3" class="welcomeRing3"><img id="WelcomeRing3Img" class="shrink" src="./assets/WelcomeRing3.png" width="400px" height="400px"/></div>';
-      }
+    function WelcomeRig() {
+        document.querySelector('.MainRigContainer').style.display = 'none';
+        const div = document.querySelector('.main-container');
+        div.innerHTML += '<div id="WelcomeRingLock" class="WelcomeRingLock"><img id="WelcomeRingLockImg" class="shrink" src="./assets/WelcomeRingLock.png" width="40px" height="40px"/></div>';
+        div.innerHTML += '<div id="welcomeRing1" class="welcomeRing1"><img id="welcomeRing1Img" class="shrink" src="./assets/WelcomeRing1.png" width="200px" height="200px"/></div>';
+        div.innerHTML += '<div id="welcomeRing2" class="welcomeRing2"><img id="welcomeRing2Img" class="shrink" src="./assets/WelcomeRing2.png" width="300px" height="300px"/></div>';
+        div.innerHTML += '<div id="welcomeRing3" class="welcomeRing3"><img id="WelcomeRing3Img" class="shrink" src="./assets/WelcomeRing3.png" width="400px" height="400px"/></div>';
+    }
 
-      const WelcomeRingLockImg = document.getElementById("WelcomeRingLockImg");
-      const WelcomeRing1Img = document.getElementById("welcomeRing1Img");
-      const WelcomeRing2Img = document.getElementById("welcomeRing2Img");
-      const WelcomeRing3Img = document.getElementById("WelcomeRing3Img");
-      let degree = 0;
-      let rotate = 0;
+    const WelcomeRingLockImg = document.getElementById("WelcomeRingLockImg");
+    const WelcomeRing1Img = document.getElementById("welcomeRing1Img");
+    const WelcomeRing2Img = document.getElementById("welcomeRing2Img");
+    const WelcomeRing3Img = document.getElementById("WelcomeRing3Img");
+    let degree = 0;
+    let rotate = 0;
 
-      function rotateImage() {
-          degree += 1;
-          rotate -= 1;
-          WelcomeRing1Img.style.transform = `rotate(${degree}deg)`;
-          WelcomeRing2Img.style.transform = `rotate(${rotate}deg)`;
-          WelcomeRing3Img.style.transform = `rotate(${degree}deg)`;
-          requestAnimationFrame(rotateImage);
-      }
-      rotateImage();
+    function rotateImage() {
+        degree += 1;
+        rotate -= 1;
+        WelcomeRing1Img.style.transform = `rotate(${degree}deg)`;
+        WelcomeRing2Img.style.transform = `rotate(${rotate}deg)`;
+        WelcomeRing3Img.style.transform = `rotate(${degree}deg)`;
+        requestAnimationFrame(rotateImage);
+    }
 
+    rotateImage();
+    MianRig();
 
-      MianRig();
+    function MianRig() {
+        const div = document.querySelector('.main-rig');
+        div.innerHTML += '<div id="mainrig1" class="mainrig"><img id="mainrig1Img" src="./assets/bgAnim1.png" width="150px" height="150px"/></div>';
+        div.innerHTML += '<div id="mainrig2" class="mainrig2"><img id="mainrig2Img" src="./assets/bgAnim2.png" width="400px" height="400px"/></div>';
+        div.innerHTML += '<div id="mainrig3" class="mainrig3"><img id="mainrig3Img" src="./assets/bgAnim3.png" width="500px" height="500px"/></div>';      
+    }
 
-      function MianRig() {
-          const div = document.querySelector('.main-rig');
-          div.innerHTML += '<div id="mainrig1" class="mainrig"><img id="mainrig1Img" src="./assets/bgAnim1.png" width="150px" height="150px"/></div>';
-          div.innerHTML += '<div id="mainrig2" class="mainrig2"><img id="mainrig2Img" src="./assets/bgAnim2.png" width="400px" height="400px"/></div>';
-          div.innerHTML += '<div id="mainrig3" class="mainrig3"><img id="mainrig3Img" src="./assets/bgAnim3.png" width="500px" height="500px"/></div>';      
-      }
+    const MainRing1Img = document.getElementById("mainrig1Img");
+    const MainRing2Img = document.getElementById("mainrig2Img");
+    const MainRing3Img = document.getElementById("mainrig3Img");
+    let Maindegree = 0;
+    let Mainrotate = 0;
 
-      const MainRing1Img = document.getElementById("mainrig1Img");
-      const MainRing2Img = document.getElementById("mainrig2Img");
-      const MainRing3Img = document.getElementById("mainrig3Img");
-      let Maindegree = 0;
-      let Mainrotate = 0;
+    function MainRigRotate() {
+        Maindegree += 1;
+        Mainrotate -= 1;
+        MainRing1Img.style.transform = `rotate(${Maindegree}deg)`;
+        MainRing2Img.style.transform = `rotate(${Mainrotate}deg)`;
+        MainRing3Img.style.transform = `rotate(${Maindegree}deg)`;
+        requestAnimationFrame(MainRigRotate);
+    }
+    MainRigRotate();
+    SinGraph();
 
-      function MainRigRotate() {
-          Maindegree += 1;
-          Mainrotate -= 1;
-          MainRing1Img.style.transform = `rotate(${Maindegree}deg)`;
-          MainRing2Img.style.transform = `rotate(${Mainrotate}deg)`;
-          MainRing3Img.style.transform = `rotate(${Maindegree}deg)`;
-          requestAnimationFrame(MainRigRotate);
-      }
-      MainRigRotate();
+    function SinGraph(){
+        document.querySelector('.singraph').innerHTML += '<img id="singraphImg" src="./assets/singraph.png" width="300%" height="50px"/>';       
+    }
+    
+    let move = 0;
+    
+    function movesingraph(){
+        move -= 1;
+        if(move == -300)
+        {
+            move = 0;
+        }
+        document.querySelector('#singraphImg').style.left = move+'px';
+        requestAnimationFrame(movesingraph);
+    }
+    
+    movesingraph();
 
+    function FooterMainText(){
+        document.querySelector('.FooterTextContainer').innerHTML += '<div id="FooterMainText1" class="FooterMainText1"><h2>egenius-platform</h2></div>';            
+        document.querySelector('.FooterTextContainer').innerHTML += '<div id="FooterMainText2" class="FooterMainText2"><h2>Husnain@Egenius.co</h2></div>';            
+        document.querySelector('.FooterTextContainer').style.display = 'none';
+    }
 
-      SinGraph();
+    FooterMainText();
 
-      function SinGraph(){
-          document.querySelector('.singraph').innerHTML += '<img id="singraphImg" src="./assets/singraph.png" width="300%" height="50px"/>';       
-      }
-      let move = 0;
-      function movesingraph(){
-          move -= 1;
-          if(move == -300)
-          {
-              move = 0;
-          }
-          document.querySelector('#singraphImg').style.left = move+'px';
-          requestAnimationFrame(movesingraph);
-      }
-      movesingraph();
+    function imgShrink(el, size){
+        el.style.height = size;
+        el.style.width = size;
+    }
+    WelcomeRingLockImg.addEventListener("click", function() { 
+        setTimeout(function() {
+            WelcomeRingLockImg.setAttribute("src", "./assets/unlock.png");
+        }, 200);
+        setTimeout(function() {
+            WelcomeRing1Img.setAttribute("src", "./assets/AfterWelcomeRing1.png");
+        }, 600);
+        setTimeout(function() {
+            WelcomeRing2Img.setAttribute("src", "./assets/AfterWelcomeRing2.png");
+        }, 1000);
+        setTimeout(function() {
+            WelcomeRing3Img.setAttribute("src", "./assets/AfterWelcomeRing3.png");
+        }, 1400);
+        setTimeout(function() {
+            imgShrink(WelcomeRing3Img, "300px");
+        }, 1800);
+        setTimeout(function() {
+            imgShrink(WelcomeRing2Img, "200px");
+            imgShrink(WelcomeRing3Img, "200px");
+        }, 2200);
+        setTimeout(function() {
+            imgShrink(WelcomeRing1Img, "100px");
+            imgShrink(WelcomeRing2Img, "100px");
+            imgShrink(WelcomeRing3Img, "100px");
+        }, 2600);
+        setTimeout(function() {
+            imgShrink(WelcomeRing1Img, "40px");
+            imgShrink(WelcomeRing2Img, "40px");
+            imgShrink(WelcomeRing3Img, "40px");
+        }, 3000);
+        setTimeout(function() {
+            RemoveWelcomeGrid();
+        }, 4500);
+    });
+    function RemoveWelcomeGrid(){
+        document.querySelector('.main-container').innerHTML = "";
+        document.querySelector('.main-container').innerHTML += '<div id="MainDiv" class="MainDiv"><img id="MainDivImg" src="./assets/CarbonFiber.jpg" width="100%" height="100%"/></div>';
+        document.querySelector('.main-container').innerHTML += '<div id="Navbar" class="Navbar"><ul><li class="li"><a id="Navbarlist"  type="button" onclick="HideMainGrid(\'https://egenius.vercel.app/home\')">Egenius</a></li></ul></div>';
+        document.querySelector("#Navbar").style.backgroundImage = "url('./assets/navbarbg.png')";
+        setTimeout(function() {
+            ShowMainGrid();
+        }, 500);
+    }
+    function ShowMainGrid(){
+        document.querySelector('.MainRigContainer').style.display = 'block';
+        document.querySelector('.main-container').innerHTML += '<div id="fauxBG" class="fauxBGMain fauxBG"><img id="fauxBGImg" src="./assets/fauxBG.png" width="100%" height="100%"/></div>';            
+        setTimeout(function() {
+            document.querySelector('.main-container').innerHTML += '<div id="fauxBG1" class="fauxBGMain fauxBG1"><img id="fauxBG1Img" src="./assets/fauxBG1.png" width="100%" height="100%"/></div>';            
+        }, 500);
+        setTimeout(function() {
+            document.querySelector('.main-container').innerHTML += '<div id="fauxBG2" class="fauxBGMain fauxBG2"><img id="fauxBG2Img" src="./assets/fauxBG2.png" width="100%" height="100%"/></div>';            
+        }, 1000);
+        setTimeout(function() {
+            document.querySelector('.fauxBG2').style.display = 'none';
+            document.querySelector('.main-container').innerHTML += '<div id="fauxBG3" class="fauxBGMain fauxBG3"><img id="fauxBG3Img" src="./assets/fauxBG3.png" width="100%" height="100%"/></div>';            
+        }, 1500);
+        setTimeout(function() {
+            document.querySelector('.fauxBG3').style.display = 'none';
+            document.querySelector('.main-container').innerHTML += '<div id="fauxBG4" class="fauxBGMain fauxBG4"><img id="fauxBG4Img" src="./assets/fauxBG4.png" width="100%" height="100%"/></div>';            
+        }, 2000);
+        setTimeout(function() {
+            document.querySelector('.fauxBG4').style.display = 'none';
+            document.querySelector('.main-container').innerHTML += '<div id="fauxBG5" class="fauxBGMain fauxBG5"><img id="fauxBG5Img" src="./assets/fauxBG5.png" width="100%" height="100%"/></div>';            
+        }, 2500);
+        setTimeout(function() {
+            document.querySelector('.fauxBG5').style.display = 'none';
+            document.querySelector('.main-container').innerHTML += '<div id="fauxBG" class="fauxBGMain fauxBG"><img id="fauxBG6Img" src="./assets/fauxBG.png" width="100%" height="100%"/></div>';     
+            ShowFooter();
+        }, 3000);
+    }
+    function ShowFooter(){
+        document.querySelector('.main-container').innerHTML += '<div id="footerBG" class="footerBG"><img id="footerBG" src="./assets/footerBG.png" width="100%" height="100px"/></div>';            
+        setTimeout(function() {
+            document.querySelector('.main-container').innerHTML += '<div id="footerGraph" class="footerGraph"><img id="footerGraph" src="./assets/footerGraph.png" width="50px" height="100px"/></div>';            
+        }, 500);
+        setTimeout(function() {
+            document.querySelector('.main-container').innerHTML += '<div id="footerGraph1" class="footerGraph1 footerGraph"><img id="footerGraph1" src="./assets/footerGraph.png" width="50px" height="100px"/></div>';            
+        }, 600);
+        setTimeout(function() {
+            document.querySelector('.main-container').innerHTML += '<div id="footerGraph2" class="footerGraph2 footerGraph"><img id="footerGraph2" src="./assets/footerGraph.png" width="50px" height="100px"/></div>';            
+        }, 700);
+        setTimeout(function() {
+            document.querySelector('.main-container').innerHTML += '<div id="footerGraph3" class="footerGraph3 footerGraph"><img id="footerGraph3" src="./assets/footerGraph.png" width="50px" height="100px"/></div>';            
+        }, 800);
+        setTimeout(function() {
+            document.querySelector('.main-container').innerHTML += '<div id="footerGraph4" class="footerGraph4 footerGraph"><img id="footerGraph4" src="./assets/footerGraph.png" width="50px" height="100px"/></div>';            
+        }, 900);
+        setTimeout(function() {
+            document.querySelector('.main-container').innerHTML += '<div id="footerGraph5" class="footerGraph5 footerGraph"><img id="footerGraph5" src="./assets/footerGraph.png" width="50px" height="100px"/></div>';            
+            document.querySelector('.FooterTextContainer').style.display = 'block';
+            ReverseFooter();
+        }, 1000);
+    }
+    function ReverseFooter(){
+        setTimeout(function() {
+            document.querySelector('#footerGraph5').style.display = "none";
+        }, 100);
+        setTimeout(function() {
+            document.querySelector('#footerGraph4').style.display = "none";
+        }, 200);
+        setTimeout(function() {
+            document.querySelector('#footerGraph3').style.display = "none";
+        }, 300);
+        setTimeout(function() {
+            document.querySelector('#footerGraph2').style.display = "none";
+        }, 400);
+        setTimeout(function() {
+            document.querySelector('#footerGraph1').style.display = "none";
+        }, 500);
+        setTimeout(function() {
+            document.querySelector('#footerGraph').style.display = "none";
+            ShowFootersticks();
+        }, 600);
+    }
+    function ShowFootersticks(){
+        setTimeout(function() {
+            document.querySelector('.main-container').innerHTML += '<div id="footerGraph" class="footerGraph"><img id="footerGraph" src="./assets/footerGraph.png" width="50px" height="100px"/></div>';            
+        }, 100);
+        setTimeout(function() {
+            document.querySelector('.main-container').innerHTML += '<div id="footerGraph1" class="footerGraph1 footerGraph"><img id="footerGraph1" src="./assets/footerGraph.png" width="50px" height="100px"/></div>';            
+        }, 200);
+        setTimeout(function() {
+            document.querySelector('.main-container').innerHTML += '<div id="footerGraph2" class="footerGraph2 footerGraph"><img id="footerGraph2" src="./assets/footerGraph.png" width="50px" height="100px"/></div>';            
+        }, 300);
+        setTimeout(function() {
+            document.querySelector('.main-container').innerHTML += '<div id="footerGraph3" class="footerGraph3 footerGraph"><img id="footerGraph3" src="./assets/footerGraph.png" width="50px" height="100px"/></div>';            
+        }, 400);
+        setTimeout(function() {
+            document.querySelector('.main-container').innerHTML += '<div id="footerGraph4" class="footerGraph4 footerGraph"><img id="footerGraph4" src="./assets/footerGraph.png" width="50px" height="100px"/></div>';            
+        }, 500);
+        setTimeout(function() {
+            document.querySelector('.main-container').innerHTML += '<div id="footerGraph5" class="footerGraph5 footerGraph"><img id="footerGraph5" src="./assets/footerGraph.png" width="50px" height="100px"/></div>';            
+            ShowMainGalary();
+        }, 600);
+    }
+    function ShowMainGalary(){
+        document.querySelector('.main-container').innerHTML += '<div id="imageGalBorder" class="imageGalBorder"><div class="image-container position-relative"><img id="imageGalBorderImg" src="./assets/imageGalBorder.png" width="100%" height="100%"/></div></div>';                        
+        document.querySelector('#imageGalBorder .image-container').innerHTML += '<div id="ContentContainer" class="ContentContainer"></div>';                        
+        document.querySelector('#ContentContainer').innerHTML += '<h1 class="h1">Welcome To My Portfolio Website</h1>';  
+        document.querySelector('#ContentContainer').innerHTML += '<h2 class="h2">The Place Where You Can Explore What i do.</h2>';  
+        document.querySelector('#ContentContainer').innerHTML += '<h2 class="h2">If You Have Any Query You Can Send Me a Message On This <a class="a" type="button" onclick="HideMainGrid(\'https://egenius.vercel.app/contact-us\')">Reach Me</a> Or You Can Also Visit My Website <a class="a" type="button" onclick="HideMainGrid(\'https://egenius.vercel.app/home\')">Egenius.co</a></h2>';    
+    }
+    function HideMainGrid(URL) {
+        document.querySelector('.singraph').classList.add('hide_singraph');
+        document.querySelector('#footerBG').classList.add('hide_footerBG');
+        document.querySelectorAll('.footerGraph').forEach(element => {
+            element.classList.add('hide_footerGraph');
+        });
+        document.querySelector('#FooterMainText1').classList.add('hide_FooterMainText');
+        document.querySelector('#FooterMainText2').classList.add('hide_FooterMainText');
+        setTimeout(function() {
+            document.querySelector('#imageGalBorder').classList.add('hide_imageGalBorder');
+        }, 100);
+        setTimeout(function() {
+            document.querySelector('#Navbar').classList.add('hide_Navbar');
+        }, 1000);
+        setTimeout(function() {
+            document.querySelector('.main-rig').classList.add('hide_main-rig');
+            document.querySelector('.fauxBG5').style.display = 'block';
+            setTimeout(function() {
+                document.querySelector('.fauxBG5').style.display = 'none';
+                document.querySelector('.fauxBG4').style.display = 'block';
+            }, 500);
+            setTimeout(function() {
+                document.querySelector('.fauxBG4').style.display = 'none';
+                document.querySelector('.fauxBG3').style.display = 'block';
+            }, 1000);
+            setTimeout(function() {
+                document.querySelector('.fauxBG3').style.display = 'none';
+                document.querySelector('.fauxBG2').style.display = 'block';
+            }, 1500);
+            setTimeout(function() {
+                document.querySelector('.fauxBG2').style.display = 'none';
+                document.querySelector('.fauxBG1').style.display = 'block';
+            }, 2000);
+            setTimeout(function() {
+                document.querySelector('.fauxBG1').style.display = 'none';
+                document.querySelector('.fauxBG').style.display = 'block';
+            }, 2000);
+            setTimeout(function() {
+                document.querySelector('.fauxBG').style.display = 'none';
+                document.querySelector('.main-container').innerHTML = '';
+                document.querySelector('.MainRigContainer').innerHTML = '';
+                document.querySelector('.FooterTextContainer').innerHTML = '';
+                window.open(URL , "_self");
+            }, 2500);
+        }, 1500);
+        
+        
+    }
 
-      function FooterMainText(){
-          document.querySelector('.FooterTextContainer').innerHTML += '<div id="FooterMainText1" class="FooterMainText1"><h2>egenius-platform</h2></div>';            
-          document.querySelector('.FooterTextContainer').innerHTML += '<div id="FooterMainText2" class="FooterMainText2"><h2>Husnain@Egenius.co</h2></div>';            
-          document.querySelector('.FooterTextContainer').style.display = 'none';
-      }
-      FooterMainText();
-
-      function imgShrink(el, size){
-          el.style.height = size;
-          el.style.width = size;
-      }
-
-      WelcomeRingLockImg.addEventListener("click", function() { 
-          setTimeout(function() {
-              WelcomeRingLockImg.setAttribute("src", "./assets/unlock.png");
-          }, 200);
-          setTimeout(function() {
-              WelcomeRing1Img.setAttribute("src", "./assets/AfterWelcomeRing1.png");
-          }, 600);
-          setTimeout(function() {
-              WelcomeRing2Img.setAttribute("src", "./assets/AfterWelcomeRing2.png");
-          }, 1000);
-          setTimeout(function() {
-              WelcomeRing3Img.setAttribute("src", "./assets/AfterWelcomeRing3.png");
-          }, 1400);
-          setTimeout(function() {
-              imgShrink(WelcomeRing3Img, "300px");
-          }, 1800);
-          setTimeout(function() {
-              imgShrink(WelcomeRing2Img, "200px");
-              imgShrink(WelcomeRing3Img, "200px");
-          }, 2200);
-          setTimeout(function() {
-              imgShrink(WelcomeRing1Img, "100px");
-              imgShrink(WelcomeRing2Img, "100px");
-              imgShrink(WelcomeRing3Img, "100px");
-          }, 2600);
-          setTimeout(function() {
-              imgShrink(WelcomeRing1Img, "40px");
-              imgShrink(WelcomeRing2Img, "40px");
-              imgShrink(WelcomeRing3Img, "40px");
-          }, 3000);
-          setTimeout(function() {
-              RemoveWelcomeGrid();
-          }, 4500);
-      });
-
-      function RemoveWelcomeGrid(){
-          document.querySelector('.main-container').innerHTML = "";
-          document.querySelector('.main-container').innerHTML += '<div id="MainDiv" class="MainDiv"><img id="MainDivImg" src="./assets/CarbonFiber.jpg" width="100%" height="100%"/></div>';
-          document.querySelector('.main-container').innerHTML += '<div id="Navbar" class="Navbar"><ul><li class="li"><a id="Navbarlist" href="https://egenius.vercel.app/home" target="_blank">Egenius</a></li></ul></div>';
-          document.querySelector("#Navbar").style.backgroundImage = "url('./assets/navbarbg.png')";
-          setTimeout(function() {
-              ShowMainGrid();
-          }, 500);
-      }
-
-      function ShowMainGrid(){
-          document.querySelector('.MainRigContainer').style.display = 'block';
-          document.querySelector('.main-container').innerHTML += '<div id="fauxBG" class="fauxBGMain fauxBG"><img id="fauxBGImg" src="./assets/fauxBG.png" width="100%" height="100%"/></div>';            
-          setTimeout(function() {
-              document.querySelector('.main-container').innerHTML += '<div id="fauxBG1" class="fauxBGMain fauxBG1"><img id="fauxBG1Img" src="./assets/fauxBG1.png" width="100%" height="100%"/></div>';            
-          }, 500);
-          setTimeout(function() {
-              document.querySelector('.main-container').innerHTML += '<div id="fauxBG2" class="fauxBGMain fauxBG2"><img id="fauxBG2Img" src="./assets/fauxBG2.png" width="100%" height="100%"/></div>';            
-          }, 1000);
-          setTimeout(function() {
-              document.querySelector('.fauxBG2').style.display = 'none';
-              document.querySelector('.main-container').innerHTML += '<div id="fauxBG3" class="fauxBGMain fauxBG3"><img id="fauxBG3Img" src="./assets/fauxBG3.png" width="100%" height="100%"/></div>';            
-          }, 1500);
-          setTimeout(function() {
-              document.querySelector('.fauxBG3').style.display = 'none';
-              document.querySelector('.main-container').innerHTML += '<div id="fauxBG4" class="fauxBGMain fauxBG4"><img id="fauxBG4Img" src="./assets/fauxBG4.png" width="100%" height="100%"/></div>';            
-          }, 2000);
-          setTimeout(function() {
-              document.querySelector('.fauxBG4').style.display = 'none';
-              document.querySelector('.main-container').innerHTML += '<div id="fauxBG5" class="fauxBGMain fauxBG5"><img id="fauxBG5Img" src="./assets/fauxBG5.png" width="100%" height="100%"/></div>';            
-          }, 2500);
-          setTimeout(function() {
-              document.querySelector('.fauxBG5').style.display = 'none';
-              document.querySelector('.main-container').innerHTML += '<div id="fauxBG" class="fauxBGMain fauxBG"><img id="fauxBG6Img" src="./assets/fauxBG.png" width="100%" height="100%"/></div>';     
-              ShowFooter();
-          }, 3000);
-      }
-
-
-      function ShowFooter(){
-          document.querySelector('.main-container').innerHTML += '<div id="footerBG" class="footerBG"><img id="footerBG" src="./assets/footerBG.png" width="100%" height="100px"/></div>';            
-          setTimeout(function() {
-              document.querySelector('.main-container').innerHTML += '<div id="footerGraph" class="footerGraph"><img id="footerGraph" src="./assets/footerGraph.png" width="50px" height="100px"/></div>';            
-          }, 500);
-          setTimeout(function() {
-              document.querySelector('.main-container').innerHTML += '<div id="footerGraph1" class="footerGraph1 footerGraph"><img id="footerGraph1" src="./assets/footerGraph.png" width="50px" height="100px"/></div>';            
-          }, 600);
-          setTimeout(function() {
-              document.querySelector('.main-container').innerHTML += '<div id="footerGraph2" class="footerGraph2 footerGraph"><img id="footerGraph2" src="./assets/footerGraph.png" width="50px" height="100px"/></div>';            
-          }, 700);
-          setTimeout(function() {
-              document.querySelector('.main-container').innerHTML += '<div id="footerGraph3" class="footerGraph3 footerGraph"><img id="footerGraph3" src="./assets/footerGraph.png" width="50px" height="100px"/></div>';            
-          }, 800);
-          setTimeout(function() {
-              document.querySelector('.main-container').innerHTML += '<div id="footerGraph4" class="footerGraph4 footerGraph"><img id="footerGraph4" src="./assets/footerGraph.png" width="50px" height="100px"/></div>';            
-          }, 900);
-          setTimeout(function() {
-              document.querySelector('.main-container').innerHTML += '<div id="footerGraph5" class="footerGraph5 footerGraph"><img id="footerGraph5" src="./assets/footerGraph.png" width="50px" height="100px"/></div>';            
-              document.querySelector('.FooterTextContainer').style.display = 'block';
-              ReverseFooter();
-          }, 1000);
-      }
-      function ReverseFooter(){
-          setTimeout(function() {
-              document.querySelector('#footerGraph5').style.display = "none";
-          }, 100);
-          setTimeout(function() {
-              document.querySelector('#footerGraph4').style.display = "none";
-          }, 200);
-          setTimeout(function() {
-              document.querySelector('#footerGraph3').style.display = "none";
-          }, 300);
-          setTimeout(function() {
-              document.querySelector('#footerGraph2').style.display = "none";
-          }, 400);
-          setTimeout(function() {
-              document.querySelector('#footerGraph1').style.display = "none";
-          }, 500);
-          setTimeout(function() {
-              document.querySelector('#footerGraph').style.display = "none";
-              ShowFootersticks();
-          }, 600);
-      }
-      function ShowFootersticks(){
-          setTimeout(function() {
-              document.querySelector('.main-container').innerHTML += '<div id="footerGraph" class="footerGraph"><img id="footerGraph" src="./assets/footerGraph.png" width="50px" height="100px"/></div>';            
-          }, 100);
-          setTimeout(function() {
-              document.querySelector('.main-container').innerHTML += '<div id="footerGraph1" class="footerGraph1 footerGraph"><img id="footerGraph1" src="./assets/footerGraph.png" width="50px" height="100px"/></div>';            
-          }, 200);
-          setTimeout(function() {
-              document.querySelector('.main-container').innerHTML += '<div id="footerGraph2" class="footerGraph2 footerGraph"><img id="footerGraph2" src="./assets/footerGraph.png" width="50px" height="100px"/></div>';            
-          }, 300);
-          setTimeout(function() {
-              document.querySelector('.main-container').innerHTML += '<div id="footerGraph3" class="footerGraph3 footerGraph"><img id="footerGraph3" src="./assets/footerGraph.png" width="50px" height="100px"/></div>';            
-          }, 400);
-          setTimeout(function() {
-              document.querySelector('.main-container').innerHTML += '<div id="footerGraph4" class="footerGraph4 footerGraph"><img id="footerGraph4" src="./assets/footerGraph.png" width="50px" height="100px"/></div>';            
-          }, 500);
-          setTimeout(function() {
-              document.querySelector('.main-container').innerHTML += '<div id="footerGraph5" class="footerGraph5 footerGraph"><img id="footerGraph5" src="./assets/footerGraph.png" width="50px" height="100px"/></div>';            
-              ShowMainGalary();
-          }, 600);
-      }
-      function ShowMainGalary(){
-          document.querySelector('.main-container').innerHTML += '<div id="imageGalBorder" class="imageGalBorder"><div class="image-container position-relative"><img id="imageGalBorderImg" src="./assets/imageGalBorder.png" width="100%" height="100%"/></div></div>';                        
-          document.querySelector('#imageGalBorder .image-container').innerHTML += '<div id="ContentContainer" class="ContentContainer"></div>';                        
-      
-          document.querySelector('#ContentContainer').innerHTML += '<h1 class="h1">Welcome To My Portfolio Website</h1>';  
-          document.querySelector('#ContentContainer').innerHTML += '<h2 class="h2">The Place Where You Can Explore What i do.</h2>';  
-          document.querySelector('#ContentContainer').innerHTML += '<h2 class="h2">If You Have Any Query You Can Send Me a Message On This <a class="a" href="https://egenius.vercel.app/contact-us"  target="_blank">Reach Me</a> Or You Can Also Visit My Website <a class="a" href="https://egenius.vercel.app/home"  target="_blank">Egenius.co</h2>';    
-      }
   </script>
 
 </body>
