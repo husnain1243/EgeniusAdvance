@@ -598,7 +598,7 @@
         document.querySelector('#imageGalBorder .image-container').innerHTML += '<div id="ContentContainer" class="ContentContainer"></div>';                        
         document.querySelector('#ContentContainer').innerHTML += '<h1 class="h1">Welcome To My Portfolio Website</h1>';  
         document.querySelector('#ContentContainer').innerHTML += '<h2 class="h2">The Place Where You Can Explore What i do.</h2>';  
-        document.querySelector('#ContentContainer').innerHTML += '<h2 class="h2">If You Have Any Query You Can Send Me a Message On This <a class="a" type="button" onclick="HideMainGrid(\'https://egenius.vercel.app/contact-us\')">Reach Me</a> Or You Can Also Visit My Website <a class="a" type="button" onclick="HideMainGrid(\'https://egenius.vercel.app/home\')">Egenius.co</a></h2>';    
+        document.querySelector('#ContentContainer').innerHTML += '<h2 class="h2">If You Have Any Query You Can Send Me a Message On This <a class="a" target="_blank" href="https://egenius.vercel.app/contact-us" ">Reach Me</a> Or You Can Also Visit My Website <a class="a" target="_blank" href="https://egenius.vercel.app/home" >Egenius.co</a></h2>';    
     }
     function HideMainGrid(URL) {
         document.querySelector('.singraph').classList.add('hide_singraph');
@@ -642,7 +642,7 @@
                 document.querySelector('.main-container').innerHTML = '';
                 document.querySelector('.MainRigContainer').innerHTML = '';
                 document.querySelector('.FooterTextContainer').innerHTML = '';
-                window.open(URL , "_self");
+                // window.open(URL , "_self");
             }, 2500);
         }, 1500);
         
