@@ -390,6 +390,7 @@
     let degree = 0;
     let rotate = 0;
 
+
     function rotateImage() {
         degree += 1;
         rotate -= 1;
@@ -475,6 +476,7 @@
             imgShrink(WelcomeRing3Img, "300px");
         }, 1800);
         setTimeout(function() {
+            WelcomeRingLockImg.style.opacity = '0.9';
             imgShrink(WelcomeRing2Img, "200px");
             imgShrink(WelcomeRing3Img, "200px");
         }, 2200);
@@ -495,7 +497,7 @@
     function RemoveWelcomeGrid(){
         document.querySelector('.main-container').innerHTML = "";
         document.querySelector('.main-container').innerHTML += '<div id="MainDiv" class="MainDiv"><img id="MainDivImg" src="./assets/CarbonFiber.jpg" width="100%" height="100%"/></div>';
-        document.querySelector('.main-container').innerHTML += '<div id="Navbar" class="Navbar"><ul><li class="li"><a id="Navbarlist"  type="button" onclick="HideMainGrid(\'https://egenius.vercel.app/home\')">Egenius</a></li></ul></div>';
+        document.querySelector('.main-container').innerHTML += '<div id="Navbar" class="Navbar"><ul><li class="li"><a id="Navbarlist"  type="button" onclick="HideMainGrid(\'https://egenius.vercel.app/home\')">About Me</a></li></ul></div>';
         document.querySelector("#Navbar").style.backgroundImage = "url('./assets/navbarbg.png')";
         setTimeout(function() {
             ShowMainGrid();
