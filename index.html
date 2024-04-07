@@ -357,6 +357,7 @@
         position: absolute;
         top: 0;
         left: 0;
+        z-index: -1;
     }
     #AnimationnContainer .service-card-container .service-card1{
         animation: service-card-keyframe 1s ease forwards !important;
@@ -821,13 +822,13 @@
         document.querySelector('.service-card4').innerHTML += '<h2>Wordpress Development</h2><p>As a WordPress Developer, We created high-performance and responsive websites using WordPress Builder & Theme Customization. </p><p> WordPress development involves creating and customizing WordPress sites using various components such as the WordPress core, plugins, and themes. The WordPress core is the source code that provides the core functionality of the WordPress CMS.</p><p>Elementor Divi Avada etc</p>';
         setTimeout(function() {
             document.querySelector('.service-card2').classList.add('anim-service-card2');
-        }, 1000);
+        }, 500);
         setTimeout(function() {
             document.querySelector('.service-card3').classList.add('anim-service-card3');
-        }, 2000);
+        }, 1000);
         setTimeout(function() {
             document.querySelector('.service-card4').classList.add('anim-service-card4');
-        }, 3000);
+        }, 1500);
     }
 
   </script>
