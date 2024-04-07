@@ -121,7 +121,7 @@
         height: 50px;
         background-repeat: no-repeat;
         background-size: contain;
-        left: -170px;
+        left: -160px;
         cursor: pointer;
         z-index: 20;
         transition: 1s ease;
@@ -301,7 +301,97 @@
         75% { opacity: 0.25;}
         100% { opacity: 0;}
     }
+    .main-rig-placing
+    {
+        top: 50% !important;
+        left: 70% !important;
+    }
+    .about-main-container{
+        width: 95%;
+        display: flex;
+        margin: 0 auto;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .about-main-container .about-left-one{
+        width: 45%;
+    }
+    .about-main-container .about-right-one{
+        width: 50%;
+    }
+    #AnimationnContainer .about-main-container .about-data h2{
+        margin-bottom: 20px;
+    }
+    #AnimationnContainer .about-main-container img{
+        opacity: 0.6;
+    }
+    #AnimationnContainer .Our-Services-wrapper
+    {
+        position: absolute;
+        top: 10%;
+        left: 0;
+        right: 0;
+        width: 80%;
+        margin: 0 auto;
+        height: 75%;
+        z-index: 2;
+    }
+    #AnimationnContainer .service-card-container
+    {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-items: center;
+        gap: 50px 20px;
+    }
+    #AnimationnContainer .service-card-container .service-card{
+        width: 45%;
+        padding: 30px;
+        position: relative;
+        left: 110%;
+    }
+    #AnimationnContainer .service-card-container .service-card img{
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    #AnimationnContainer .service-card-container .service-card1{
+        animation: service-card-keyframe 1s ease forwards !important;
+    }
+    #AnimationnContainer .service-card-container .anim-service-card2{
+        animation: service-card-keyframe 1s ease forwards !important;
+    }
+    #AnimationnContainer .service-card-container .anim-service-card3{
+        animation: service-card-keyframe 1s ease forwards !important;
+    }
+    #AnimationnContainer .service-card-container .anim-service-card4{
+        animation: service-card-keyframe 1s ease forwards !important;
+    }
+    @keyframes service-card-keyframe  {
+        0% { left: 110%;}
+        100% { left: 0;}
+    }
+
     @media only screen and (max-width: 767.98px){
+        #AnimationnContainer .service-card-container{
+            overflow: scroll;
+            gap: 10px;
+            padding-bottom: 50px;
+            height: 600px;
+        }
+        #AnimationnContainer .service-card-container .service-card{
+            width: 100%;
+        }
+        .about-main-container{
+            flex-direction: column;
+        }
+        .about-main-container .about-left-one,
+        .about-main-container .about-right-one{
+            width: 100%;
+        }
         #AnimationnContainer{
             height: 90vh;
         }
@@ -641,14 +731,103 @@
             }, 2000);
             setTimeout(function() {
                 document.querySelector('.fauxBG').style.display = 'none';
-                document.querySelector('.main-container').innerHTML = '';
-                document.querySelector('.MainRigContainer').innerHTML = '';
-                document.querySelector('.FooterTextContainer').innerHTML = '';
-                // window.open(URL , "_self");
+                document.querySelector('.fauxBG1').style.top = '20%';
+                document.querySelector('.fauxBG1').style.display = 'block';
+                document.querySelector('.main-rig').classList.remove('hide_main-rig');
+                document.querySelector('.main-rig').classList.add('main-rig-placing');
+                document.querySelector('#Navbar').classList.remove('hide_Navbar');
+                document.querySelector('#Navbar').innerHTML = "";
+                document.querySelector('#Navbar').innerHTML +='<ul><li class="li"><a id="Navbarlist"  type="button" onclick="HideAboutCreator(\'https://egenius.vercel.app/home\')">Service</a></li></ul>';
             }, 2500);
+            setTimeout(function() {
+                AboutMainCreater();
+            }, 3000);
+            
         }, 1500);
+    }
+
+    function AboutMainCreater(){
+        document.querySelector('#imageGalBorder').classList.remove('hide_imageGalBorder');
+        document.querySelector('#ContentContainer').innerHTML = '';
+        document.querySelector('#ContentContainer').innerHTML = '<div class="about-main-container"></div> ';
+        document.querySelector('.about-main-container').innerHTML += '<div class="about-right-one"></div><div class="about-left-one"></div> '
+        document.querySelector('.about-right-one').innerHTML += 
+        '<div class="about-data"><h2>Mohammad Husnain</h2><h2>Full Stack Developer</h2><h2>React , Laravel , CMS Development with a strong grip on front-end technologies.</h2><h2>Reach Me At <a href="https://egenius.vercel.app/contact-us" target="_blank"> Contact Me.</a></h2><h2></h2> <h2> @Egenius.co </h2></div> '
+        document.querySelector('.about-left-one').innerHTML += '<div class="about-image-container"><img src="./assets/about-me.jpeg" alt="about me" height="100%" width="100%" class=""/></div> '
         
-        
+    }
+
+    function HideAboutCreator(){
+        document.querySelector('#imageGalBorder').classList.add('hide_imageGalBorder');
+        setTimeout(function() {
+            document.querySelector('#Navbar').classList.add('hide_Navbar');
+        }, 1000);
+        setTimeout(function() {
+            document.querySelector('.main-rig').classList.add('hide_main-rig');
+        }, 2000);
+        setTimeout(function() {
+            document.querySelector('.fauxBG5').style.display = 'block';
+            setTimeout(function() {
+                document.querySelector('.fauxBG5').style.display = 'none';
+                document.querySelector('.fauxBG4').style.display = 'block';
+            }, 500);
+            setTimeout(function() {
+                document.querySelector('.fauxBG4').style.display = 'none';
+                document.querySelector('.fauxBG3').style.display = 'block';
+            }, 1000);
+            setTimeout(function() {
+                document.querySelector('.fauxBG3').style.display = 'none';
+                document.querySelector('.fauxBG2').style.display = 'block';
+            }, 1500);
+            setTimeout(function() {
+                document.querySelector('.fauxBG2').style.display = 'none';
+                document.querySelector('.fauxBG1').style.display = 'block';
+            }, 2000);
+            setTimeout(function() {
+                document.querySelector('.fauxBG1').style.display = 'none';
+                document.querySelector('.fauxBG').style.display = 'block';
+            }, 2000);
+            setTimeout(function() {
+                document.querySelector('.fauxBG').style.display = 'none';
+                document.querySelector('.fauxBG2').style.display = 'block';
+                document.querySelector('.main-rig').classList.remove('hide_main-rig');
+                document.querySelector('.main-rig').classList.remove('main-rig-placing');
+                document.querySelector('#Navbar').classList.remove('hide_Navbar');
+                document.querySelector('#Navbar').innerHTML = "";
+                document.querySelector('#Navbar').innerHTML +='<ul><li class="li"><a id="Navbarlist"  type="button" onclick="ReturnToMain(\'https://egenius.vercel.app/home\')">Main</a></li></ul>';
+            }, 2500);
+            setTimeout(function() {
+                document.querySelector('#imageGalBorder').classList.remove('hide_imageGalBorder');
+                document.querySelector('#imageGalBorder').classList.remove('imageGalBorder');
+                document.querySelector('#imageGalBorder').classList.add('Our-Services-wrapper');
+                document.querySelector('#imageGalBorder').innerHTML = '';
+                document.querySelector('#imageGalBorder').innerHTML += '<div class="service-main-container"></div>';
+                ServiceMainCreater();
+            }, 3000);
+            
+        }, 1500);
+            
+    }
+
+    function ServiceMainCreater(){
+        document.querySelector('.service-main-container').innerHTML += '<div class="service-card-container"></div>';
+        document.querySelector('.service-card-container').innerHTML += '<div class="service-card service-card1"></div><div class="service-card service-card2"></div><div class="service-card service-card3"></div><div class="service-card service-card4"></div>';
+        document.querySelectorAll('.service-card').forEach(element => {
+            element.innerHTML += '<img src="./assets/imageGalBorder.png" alt="" height="100%" width="100%" class="img-card"/>'
+        });
+        document.querySelector('.service-card1').innerHTML += '<h2>React Development</h2><p>As a React.js Developer, We created user-friendly and high-performance web applications using React.js and its libraries and tools.</p><p>React development is the process of building web applications using the React JavaScript library. React is a declarative, component-based library for building user interfaces that allows developers to create reusable UI components and efficiently update the UI in response to changes in application state.</p><p>React Libraries Tools</p>';
+        document.querySelector('.service-card2').innerHTML += '<h2>Laravel Development</h2><p>As a Laravel Developer, We specialize in building robust, scalable, and secure web applications using the Laravel PHP framework</p><p>Laravel development is the process of building web applications using the Laravel PHP framework. Laravel is a popular open-source framework that provides a rich set of features for building web applications, including a powerful ORM, routing, middleware, and a templating engine.</p><p>Laravel Libraries Tools</p>';
+        document.querySelector('.service-card3').innerHTML += '<h2>MobileApp Development</h2><p>As a MobileApp Developer, We specialize in building robust, scalable, and secure applications using the Java framework</p><p>Mobile app development is the process of building mobile applications for iOS and Android devices. There are two popular frameworks for mobile app development: Flutter (developed by Google) and React Native (developed by Facebook).</p><p>Mobile VisualStudio Tools</p>';
+        document.querySelector('.service-card4').innerHTML += '<h2>Wordpress Development</h2><p>As a WordPress Developer, We created high-performance and responsive websites using WordPress Builder & Theme Customization. </p><p> WordPress development involves creating and customizing WordPress sites using various components such as the WordPress core, plugins, and themes. The WordPress core is the source code that provides the core functionality of the WordPress CMS.</p><p>Elementor Divi Avada etc</p>';
+        setTimeout(function() {
+            document.querySelector('.service-card2').classList.add('anim-service-card2');
+        }, 1000);
+        setTimeout(function() {
+            document.querySelector('.service-card3').classList.add('anim-service-card3');
+        }, 2000);
+        setTimeout(function() {
+            document.querySelector('.service-card4').classList.add('anim-service-card4');
+        }, 3000);
     }
 
   </script>
