@@ -549,7 +549,11 @@
         #FooterMainText2{
             bottom: 5%;
         }
-        .show-them-center{
+        #AnimationnContainer .show-them-center{
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(4px);
+            padding: 50px 0px;
+            z-index: 5;
             animation: show-them-center 1s ease forwards !important;
         }
         @keyframes show-them-center {
@@ -567,6 +571,19 @@
         #AnimationnContainer .about-service-button{
             width: 100%;
             text-align: center;
+        }
+        .show-my-details .image-container::after
+        {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 20px;
+            height: 89%;
+            width: 89%;
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(4px);
+            padding: 50px 0px;
+            z-index: -1;
         }
     }
     @media only screen and (max-width: 991.98px){
