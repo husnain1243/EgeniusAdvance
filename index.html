@@ -9,7 +9,7 @@
 <body>
 
   <style>
-    body{
+   body{
       background-color: #000;
     }
     *{
@@ -470,14 +470,13 @@
     @media only screen and (max-width: 767.98px){
         #AnimationnContainer .about-service-cards {
             top: 15%;
-            left: 0px;
             width: 100%;
             overflow: scroll;
             height: 600px;
             padding-bottom: 50px;
         }
         #AnimationnContainer .about-service-card {
-            width: 90%;
+            width:80%;
         }
         #AnimationnContainer .service-card-container{
             overflow: scroll;
@@ -549,6 +548,25 @@
         }
         #FooterMainText2{
             bottom: 5%;
+        }
+        .show-them-center{
+            animation: show-them-center 1s ease forwards !important;
+        }
+        @keyframes show-them-center {
+            0% { left: 45%;}
+            100% { left: 0;}
+        }
+        .show-my-details{
+            transform: scale(1) !important;
+            animation: show-my-details 1s ease !important;
+        }
+        @keyframes show-my-details {
+            0% { left: 0;}
+            100% { left: 80px;}
+        }
+        #AnimationnContainer .about-service-button{
+            width: 100%;
+            text-align: center;
         }
     }
     @media only screen and (max-width: 991.98px){
@@ -863,7 +881,8 @@
     function AboutMainCreater(){
         document.querySelector('#imageGalBorder').classList.remove('hide_imageGalBorder');
         document.querySelector('#ContentContainer').innerHTML = '';
-        document.querySelector('#ContentContainer').innerHTML = '<div class="about-main-container"></div> ';
+        document.querySelector('#imageGalBorderImg').style.height = '80vh';
+        document.querySelector('#ContentContainer').innerHTML = '<div class="about-main-container" onclick="ShowMyDetails()"></div> ';
         document.querySelector('.about-main-container').innerHTML += '<div class="about-right-one"></div><div class="about-left-one"></div> '
         document.querySelector('.about-right-one').innerHTML += 
         '<div class="about-data"><h2>Mohammad Husnain</h2><h2>Full Stack Developer</h2><h2>React , Laravel , CMS Development with a strong grip on front-end technologies.</h2><h2>Reach Me At <a href="https://egenius.vercel.app/contact-us" target="_blank"> Contact Me.</a></h2><h2></h2> <h2> @Egenius.co </h2></div> '
@@ -875,7 +894,7 @@
             document.querySelector('.imageGalBorder').style.transform = 'scale(0.5)';
             document.querySelector('.imageGalBorder').classList.add('move-imageGalBorder');
             document.querySelector('.FooterTextContainer').innerHTML = '';
-            document.querySelector('.FooterTextContainer').innerHTML += '<div class="about-service-cards"></div>';
+            document.querySelector('.FooterTextContainer').innerHTML += '<div class="about-service-cards" onclick="showthisone()"></div>';
 
             document.querySelector('.about-service-cards').innerHTML += '<div class="about-service-card about-service-card1"></div><div class="about-service-card about-service-card2"></div><div class="about-service-card about-service-card3"></div><div class="about-service-card about-service-card4"></div>';
             document.querySelectorAll('.about-service-card').forEach(element => {
@@ -998,6 +1017,14 @@
             document.querySelector('.service-card4').classList.add('anim-service-card4');
         }, 1500);
     }
+
+    function ShowMyDetails(){
+        document.querySelector("#imageGalBorder").classList.toggle('show-my-details');
+    }
+    function showthisone(){
+        document.querySelector(".about-service-cards").classList.toggle('show-them-center');
+    }
+
 
   </script>
 
