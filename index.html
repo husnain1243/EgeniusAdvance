@@ -35,7 +35,7 @@
     }
     #AnimationnContainer h1{
         font-size: 40px;
-        margin-bottom: 60px;
+        margin-bottom: 20px;
     }
     #AnimationnContainer h2{
         font-size: 40px;
@@ -45,14 +45,14 @@
         font-size: 40px;
     }
     #AnimationnContainer p{
-        font-size: 18px;
+        font-size: 24px;
     }
     #AnimationnContainer a{
         font-size: 18px;
         transition: all 1s ease-in;
     }
     #AnimationnContainer h2 a{
-        font-size: 30px;
+        font-size: 40px;
         text-decoration: underline;
     }
     #AnimationnContainer a:hover{
@@ -322,7 +322,7 @@
         display: none;
     }
     .about-main-container .about-right-one{
-        width: 100%;
+        width: 80%;
     }
     #AnimationnContainer .about-main-container .about-data h2{
         margin-bottom: 20px;
@@ -599,6 +599,7 @@
         #FooterMainText2 {
             bottom: 50px;
         }
+        #AnimationnContainer h2 a,
         #AnimationnContainer h2{
             font-size: 30px;
         }
@@ -694,14 +695,37 @@
     }
     
     movesingraph();
+ 
+
 
     function FooterMainText(){
-        document.querySelector('.FooterTextContainer').innerHTML += '<div id="FooterMainText1" class="FooterMainText1"><h2>egenius-platform</h2></div>';            
-        document.querySelector('.FooterTextContainer').innerHTML += '<div id="FooterMainText2" class="FooterMainText2"><h2>Husnain@Egenius.co</h2></div>';            
+        document.querySelector('.FooterTextContainer').innerHTML += '<div id="FooterMainText1" class="FooterMainText1"><h2 id="FooterMainText1H2"></h2></div>';            
+        document.querySelector('.FooterTextContainer').innerHTML += '<div id="FooterMainText2" class="FooterMainText2"><h2 id="FooterMainText2H2">Husnain@Egenius.co</h2></div>';            
         document.querySelector('.FooterTextContainer').style.display = 'none';
+        requestAnimationFrame(rewriteWord);
     }
 
     FooterMainText();
+
+    const wordElement = document.getElementById('FooterMainText1H2');
+    const word = 'egenius-platform';
+    const wordsarray = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+    let index = 0;
+    function rewriteWord() {
+        if (index < word.length) {
+            wordElement.textContent += word[index];     
+            index++;
+            setTimeout(function() {
+                requestAnimationFrame(rewriteWord);
+            }, 100);
+        } else {
+            index = 0;
+            setTimeout(function() {
+                wordElement.textContent = '';
+                requestAnimationFrame(rewriteWord);
+            }, 1000);
+        }
+    }
 
     function imgShrink(el, size){
         el.style.height = size;
@@ -911,7 +935,7 @@
         document.querySelector('#ContentContainer').innerHTML = '<div class="about-main-container" onclick="ShowMyDetails()"></div> ';
         document.querySelector('.about-main-container').innerHTML += '<div class="about-right-one"></div><div class="about-left-one"></div> '
         document.querySelector('.about-right-one').innerHTML += 
-        '<div class="about-data"><h2>Mohammad Husnain</h2><h2>Full Stack Developer</h2><h2>React , Laravel , CMS Development with a strong grip on front-end technologies.</h2><h2>Reach Me At <a href="https://egenius.vercel.app/contact-us" target="_blank"> Contact Me.</a></h2><h2></h2> <h2> @Egenius.co </h2></div> '
+        '<div class="about-data"><h2>Mohammad Husnain</h2><h2>Full Stack Developer</h2><h2>React , Laravel & CMS Development with a strong grip on front-end technologies.</h2><h2>Skills:</h2><h2>HTML5 , CSS3 , Bootstrap5 , Javascript , PHP , Jquery.</h2><h2>Reach Me At <a href="https://egenius.vercel.app/contact-us" target="_blank"> @Egenius.co.</a></h2></div> '
         document.querySelector('.about-left-one').innerHTML += '<div class="about-image-container"><img src="./assets/about-me.jpeg" alt="about me" height="100%" width="100%" class=""/></div> '
         setTimeout(function() {
             document.querySelector('#imageGalBorder').classList.add('shrink-imageGalBorder');
@@ -926,10 +950,10 @@
             document.querySelectorAll('.about-service-card').forEach(element => {
                 element.innerHTML += '<img src="./assets/imageGalBorder.png" alt="" height="100%" width="100%" class="img-card"/>'
             });
-            document.querySelector('.about-service-card1').innerHTML += '<h2>React Development</h2><p class="typewritter">As a React.js Developer, We created user-friendly and high-performance web applications using React.js and its libraries and tools.</p>';
-            document.querySelector('.about-service-card2').innerHTML += '<h2>Laravel Development</h2><p class="typewritter">As a Laravel Developer, We specialize in building robust, scalable, and secure web applications using the Laravel PHP framework</p>';
+            document.querySelector('.about-service-card1').innerHTML += '<h2>React Development</h2><p class="typewritter">As a React Developer, We created user-friendly and high-performance web applications with advance libraries and Third Party API.</p>';
+            document.querySelector('.about-service-card2').innerHTML += '<h2>Laravel Development</h2><p class="typewritter">As a Laravel Developer, We specialize in building robust, scalable, high-performance , user-friendly and secure web applications.</p>';
             document.querySelector('.about-service-card3').innerHTML += '<h2>MobileApp Development</h2><p class="typewritter">As a MobileApp Developer, We specialize in building robust, scalable, and secure applications using the Java framework</p>';
-            document.querySelector('.about-service-card4').innerHTML += '<h2>Wordpress Development</h2><p class="typewritter">As a WordPress Developer, We created high-performance and responsive websites using Builder & Theme Customization. </p>';
+            document.querySelector('.about-service-card4').innerHTML += '<h2>Wordpress Development</h2><p class="typewritter">As a WordPress Developer, We created high-performance websites using Theme Builder , Theme Customization & API Integration.</p>';
             document.querySelector('.about-service-cards').innerHTML += '<h2 class="about-service-button"  onclick="HideAboutCreator(\'https://egenius.vercel.app/home\')">See More</h2>';
             setTimeout(function() {
                 document.querySelector('.about-service-card1').classList.add('anim-about-service-card1');
