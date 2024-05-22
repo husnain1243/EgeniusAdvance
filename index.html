@@ -34,18 +34,18 @@
         list-style: none;
     }
     #AnimationnContainer h1{
-        font-size: 40px;
-        margin-bottom: 20px;
+        font-size: 45px;
+        margin-bottom: 30px;
     }
     #AnimationnContainer h2{
         font-size: 40px;
-        margin-bottom: 40px;
+        margin-bottom: 30px;
     }
     #FooterMainText2 h2{
         font-size: 40px;
     }
     #AnimationnContainer p{
-        font-size: 24px;
+        font-size: 20px;
     }
     #AnimationnContainer a{
         font-size: 18px;
@@ -311,7 +311,7 @@
         left: 70% !important;
     }
     .about-main-container{
-        width: 95%;
+        width: 100%;
         display: flex;
         margin: 0 auto;
         align-items: center;
@@ -322,7 +322,7 @@
         display: none;
     }
     .about-main-container .about-right-one{
-        width: 80%;
+        width: 85%;
     }
     #AnimationnContainer .about-main-container .about-data h2{
         margin-bottom: 20px;
@@ -471,6 +471,29 @@
         left: 0;
     }
 
+    #AnimationnContainer .service-card-container .hide-anim-service-button,
+    #AnimationnContainer .service-card-container .hide-anim-service-card1,
+    #AnimationnContainer .service-card-container .hide-anim-service-card2,
+    #AnimationnContainer .service-card-container .hide-anim-service-card3,
+    #AnimationnContainer .service-card-container .hide-anim-service-card4{
+        animation: hide-anim-service-card1 1s ease forwards !important;
+    }
+    @keyframes hide-anim-service-card1  {
+        0% { left: 0;}
+        100% { left: 110%;}
+    }
+    .about-main-container .about-right-one::after,
+    #AnimationnContainer .service-card::after,
+    #AnimationnContainer .about-service-card::after {
+        content: '';
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        height: 89%;
+        width: 89%;
+        backdrop-filter: blur(2px);
+        z-index: -1;
+    }
     @media only screen and (max-width: 767.98px){
         #AnimationnContainer .about-service-cards {
             top: 15%;
@@ -496,6 +519,7 @@
         }
         .about-main-container .about-left-one,
         .about-main-container .about-right-one{
+            position: relative;
             width: 100%;
         }
         #AnimationnContainer{
@@ -554,7 +578,7 @@
             bottom: 5%;
         }
         #AnimationnContainer .show-them-center{
-            backdrop-filter: blur(2px);
+            backdrop-filter: blur(4px);
             padding: 50px 0px;
             z-index: 5;
             animation: show-them-center 1s ease forwards !important;
@@ -583,7 +607,7 @@
             left: 20px;
             height: 89%;
             width: 89%;
-            backdrop-filter: blur(2px);
+            backdrop-filter: blur(4px);
             padding: 50px 0px;
             z-index: -1;
         }
@@ -700,7 +724,7 @@
 
 
     function FooterMainText(){
-        document.querySelector('.FooterTextContainer').innerHTML += '<div id="FooterMainText1" class="FooterMainText1"><h2 id="FooterMainText1H2"></h2></div>';            
+        document.querySelector('.FooterTextContainer').innerHTML += '<div id="FooterMainText1" class="FooterMainText1"><h2 id="FooterMainText1H2">egenius-platform</h2></div>';            
         document.querySelector('.FooterTextContainer').innerHTML += '<div id="FooterMainText2" class="FooterMainText2"><h2 id="FooterMainText2H2">Husnain@Egenius.co</h2></div>';            
         document.querySelector('.FooterTextContainer').style.display = 'none';
         requestAnimationFrame(rewriteWord);
@@ -952,9 +976,9 @@
                 element.innerHTML += '<img src="./assets/imageGalBorder.png" alt="" height="100%" width="100%" class="img-card"/>'
             });
             document.querySelector('.about-service-card1').innerHTML += '<h2>React Development</h2><p class="typewritter">As a React Developer, We created user-friendly and high-performance web applications with advance libraries and Third Party API.</p>';
-            document.querySelector('.about-service-card2').innerHTML += '<h2>Laravel Development</h2><p class="typewritter">As a Laravel Developer, We specialize in building robust, scalable, high-performance , user-friendly and secure web applications.</p>';
-            document.querySelector('.about-service-card3').innerHTML += '<h2>MobileApp Development</h2><p class="typewritter">As a MobileApp Developer, We specialize in building robust, scalable, and secure applications using the Java framework</p>';
-            document.querySelector('.about-service-card4').innerHTML += '<h2>Wordpress Development</h2><p class="typewritter">As a WordPress Developer, We created high-performance websites using Theme Builder , Theme Customization & API Integration.</p>';
+            document.querySelector('.about-service-card2').innerHTML += '<h2>Laravel Development</h2><p class="typewritter">As a Laravel Developer, We specialize in building robust, scalable, high-performance, user-friendly and secure web applications.</p>';
+            document.querySelector('.about-service-card3').innerHTML += '<h2>MobileApp Development</h2><p class="typewritter">As a MobileApp Developer, We specialize in building robust, scalable and secure applications using the Java framework</p>';
+            document.querySelector('.about-service-card4').innerHTML += '<h2>Wordpress Development</h2><p class="typewritter">As a WordPress Developer, We created high-performance websites using Theme Builder & API Integration.</p>';
             document.querySelector('.about-service-cards').innerHTML += '<h2 class="about-service-button"  onclick="HideAboutCreator(\'https://egenius.vercel.app/home\')">See More</h2>';
             setTimeout(function() {
                 document.querySelector('.about-service-card1').classList.add('anim-about-service-card1');
@@ -1054,10 +1078,10 @@
         document.querySelectorAll('.service-card').forEach(element => {
             element.innerHTML += '<img src="./assets/imageGalBorder.png" alt="" height="100%" width="100%" class="img-card"/>'
         });
-        document.querySelector('.service-card1').innerHTML += '<h2>React Development</h2><p class="typewritter">As a React.js Developer, We created user-friendly and high-performance web applications using React.js and its libraries and tools.</p><p>React development is the process of building web applications using the React JavaScript library. React is a declarative, component-based library for building user interfaces that allows developers to create reusable UI components and efficiently update the UI in response to changes in application state.</p><p>React Libraries Tools</p>';
-        document.querySelector('.service-card2').innerHTML += '<h2>Laravel Development</h2><p class="typewritter">As a Laravel Developer, We specialize in building robust, scalable, and secure web applications using the Laravel PHP framework</p><p>Laravel development is the process of building web applications using the Laravel PHP framework. Laravel is a popular open-source framework that provides a rich set of features for building web applications, including a powerful ORM, routing, middleware, and a templating engine.</p><p>Laravel Libraries Tools</p>';
-        document.querySelector('.service-card3').innerHTML += '<h2>MobileApp Development</h2><p class="typewritter">As a MobileApp Developer, We specialize in building robust, scalable, and secure applications using the Java framework</p><p>Mobile app development is the process of building mobile applications for iOS and Android devices. There are two popular frameworks for mobile app development: Flutter (developed by Google) and React Native (developed by Facebook).</p><p>Mobile VisualStudio Tools</p>';
-        document.querySelector('.service-card4').innerHTML += '<h2>Wordpress Development</h2><p class="typewritter">As a WordPress Developer, We created high-performance and responsive websites using WordPress Builder & Theme Customization. </p><p> WordPress development involves creating and customizing WordPress sites using various components such as the WordPress core, plugins, and themes. The WordPress core is the source code that provides the core functionality of the WordPress CMS.</p><p>Elementor Divi Avada etc</p>';
+        document.querySelector('.service-card1').innerHTML += '<h2>React <br> Development</h2><p class="typewritter">As a React.js Developer, We created user-friendly and high-performance web applications using React.js and its libraries and tools.</p><p>React development is the process of building web applications using the React JavaScript library. React is a declarative, component-based library for building user interfaces that allows developers to create reusable UI components and efficiently update the UI in response to changes in application state.</p><p>React Libraries Tools</p>';
+        document.querySelector('.service-card2').innerHTML += '<h2>Laravel <br> Development</h2><p class="typewritter">As a Laravel Developer, We specialize in building robust, scalable, and secure web applications using the Laravel PHP framework</p><p>Laravel development is the process of building web applications using the Laravel PHP framework. Laravel is a popular open-source framework that provides a rich set of features for building web applications, including a powerful ORM, routing, middleware, and a templating engine.</p><p>Laravel Libraries Tools</p>';
+        document.querySelector('.service-card3').innerHTML += '<h2>MobileApp <br> Development</h2><p class="typewritter">As a MobileApp Developer, We specialize in building robust, scalable, and secure applications using the Java framework</p><p>Mobile app development is the process of building mobile applications for iOS and Android devices. There are two popular frameworks for mobile app development: Flutter (developed by Google) and React Native (developed by Facebook).</p><p>Mobile VisualStudio Tools</p>';
+        document.querySelector('.service-card4').innerHTML += '<h2>Wordpress <br> Development</h2><p class="typewritter">As a WordPress Developer, We created high-performance and responsive websites using WordPress Builder & Theme Customization. </p><p> WordPress development involves creating and customizing WordPress sites using various components such as the WordPress core, plugins, and themes. The WordPress core is the source code that provides the core functionality of the WordPress CMS.</p><p>Elementor Divi Avada etc</p>';
         setTimeout(function() {
             document.querySelector('.service-card2').classList.add('anim-service-card2');
         }, 500);
@@ -1076,6 +1100,33 @@
         document.querySelector(".about-service-cards").classList.toggle('show-them-center');
     }
 
+
+    function ReturnToMain(){
+        document.querySelector('.service-card4').classList.add('hide-anim-service-card4');
+        setTimeout(function() {
+            document.querySelector('.service-card3').classList.add('hide-anim-service-card3');
+        }, 500);
+        setTimeout(function() {
+            document.querySelector('.service-card2').classList.add('hide-anim-service-card2');
+        }, 1000);
+        setTimeout(function() {
+            document.querySelector('.service-card1').classList.add('hide-anim-service-card1');
+        }, 1500);
+        setTimeout(function() {
+            document.querySelector('#Navbar').classList.add('hide_Navbar');
+        }, 2000);
+        setTimeout(function() {
+            document.querySelector('.main-rig').classList.add('hide_main-rig');
+        }, 2500);
+        setTimeout(function() {
+            document.querySelector('#Navbar').classList.remove('hide_Navbar');
+            document.querySelector('.main-rig').classList.remove('hide_main-rig');
+            document.querySelector('.singraph').classList.remove('hide_singraph');
+            rewriteWord();
+            FooterMainText();
+            RemoveWelcomeGrid();
+        }, 4000);
+    }
 
   </script>
 
