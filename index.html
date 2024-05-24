@@ -208,13 +208,13 @@
     #AnimationnContainer #imageGalBorder .image-container #ContentContainer{
         position: absolute;
         top: 20px;
-        width: 100%;
-        height: 100%;
+        width: 90%;
+        height: max-content;
         left: 0;
         right: 0;
-        margin: 0 auto;
-        padding: 40px 30px;
+        margin: 40px 30px;
         z-index: 20;
+        backdrop-filter: blur(5px);
     }
     #AnimationnContainer .singraph{
         position: absolute;
@@ -759,37 +759,38 @@
     WelcomeRingLockImg.addEventListener("click", function() { 
         setTimeout(function() {
             WelcomeRingLockImg.setAttribute("src", "./assets/unlock.png");
-        }, 200);
+        }, 500);
         setTimeout(function() {
             WelcomeRing1Img.setAttribute("src", "./assets/AfterWelcomeRing1.png");
-        }, 600);
-        setTimeout(function() {
-            WelcomeRing2Img.setAttribute("src", "./assets/AfterWelcomeRing2.png");
         }, 1000);
         setTimeout(function() {
-            WelcomeRing3Img.setAttribute("src", "./assets/AfterWelcomeRing3.png");
-        }, 1400);
+            WelcomeRing2Img.setAttribute("src", "./assets/AfterWelcomeRing2.png");
+        }, 1500);
         setTimeout(function() {
-            imgShrink(WelcomeRing3Img, "300px");
-        }, 1800);
+            WelcomeRing3Img.setAttribute("src", "./assets/AfterWelcomeRing3.png");
+        }, 2000);
+        setTimeout(function() {
+            imgShrink(WelcomeRing3Img, "250px");
+        }, 3000);
         setTimeout(function() {
             WelcomeRingLockImg.style.opacity = '0.9';
             imgShrink(WelcomeRing2Img, "200px");
             imgShrink(WelcomeRing3Img, "200px");
-        }, 2200);
+        }, 4500);
+        // setTimeout(function() {
+        //     imgShrink(WelcomeRing1Img, "100px");
+        //     imgShrink(WelcomeRing2Img, "100px");
+        //     imgShrink(WelcomeRing3Img, "100px");
+        // }, 6000);
         setTimeout(function() {
-            imgShrink(WelcomeRing1Img, "100px");
-            imgShrink(WelcomeRing2Img, "100px");
-            imgShrink(WelcomeRing3Img, "100px");
-        }, 2600);
-        setTimeout(function() {
+            WelcomeRingLockImg.style.opacity = '0.8';
             imgShrink(WelcomeRing1Img, "40px");
             imgShrink(WelcomeRing2Img, "40px");
             imgShrink(WelcomeRing3Img, "40px");
-        }, 3000);
+        }, 6000);
         setTimeout(function() {
             RemoveWelcomeGrid();
-        }, 4500);
+        }, 8000);
     });
     function RemoveWelcomeGrid(){
         document.querySelector('.main-container').innerHTML = "";
