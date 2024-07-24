@@ -212,9 +212,10 @@
         height: max-content;
         left: 0;
         right: 0;
-        margin: 40px 30px;
+        margin: 20px 30px;
         z-index: 20;
-        backdrop-filter: blur(5px);
+        backdrop-filter: blur(10px);
+        padding: 20px;
     }
     #AnimationnContainer .singraph{
         position: absolute;
@@ -410,10 +411,51 @@
         overflow: scroll;
         height: 80vh;
     }
+    #AnimationnContainer .contact-form-container{
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        z-index: 5;
+    }
     #AnimationnContainer .about-service-card{
         width: 45%;
         position: relative;
         padding: 30px;
+    }
+    #AnimationnContainer .contact-form-container{
+        width: 50%;
+        gap: 0px;
+        padding: 0px 40px;
+    }
+    #AnimationnContainer .contact-form-container .about-service-card{
+        width: 100%;
+        padding: 0px;
+        margin-bottom: 20px;
+    }
+    #AnimationnContainer .contact-form-container h1,
+    #AnimationnContainer .contact-form-container p{
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    #AnimationnContainer .contact-form-container textarea,
+    #AnimationnContainer .contact-form-container input
+    {
+        width: 100%;
+        padding: 15px;
+        background-color: transparent;
+        border: 1px solid #73d8fd;
+        text-align: center;
+        color: #73d8fd;
+        border-radius: 5px;
+        font-size: 20px;
+        font-family: 'Neogrey';
+        margin: 0 auto;
+    }
+    ::-webkit-input-placeholder{
+        color: #73d8fd;
+    }
+    :focus-visible{
+        outline: none;
     }
     #AnimationnContainer .about-service-cards img{
         display: block;
@@ -489,10 +531,19 @@
         position: absolute;
         top: 20px;
         left: 20px;
-        height: 89%;
-        width: 89%;
-        backdrop-filter: blur(2px);
+        height: 88%;
+        width: 88%;
+        backdrop-filter: blur(10px);
         z-index: -1;
+    }
+    #AnimationnContainer .contact-form-container .about-service-card::after{
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+    }
+    #AnimationnContainer .contact-form-container .about-service-card:nth-child(1)::after{
+        height: 0px;
     }
     @media only screen and (max-width: 767.98px){
         #AnimationnContainer .about-service-cards {
@@ -631,6 +682,9 @@
         #FooterMainText2 h2{
             font-size: 20px;
         }
+        #AnimationnContainer #imageGalBorder .image-container #ContentContainer{
+            margin: 10px;
+        }
     }
 
   </style>
@@ -651,10 +705,10 @@
     function WelcomeRig() {
         document.querySelector('.MainRigContainer').style.display = 'none';
         const div = document.querySelector('.main-container');
-        div.innerHTML += '<div id="WelcomeRingLock" class="WelcomeRingLock"><img id="WelcomeRingLockImg" class="shrink" src="./assets/WelcomeRingLock.png" width="40px" height="40px"/></div>';
-        div.innerHTML += '<div id="welcomeRing1" class="welcomeRing1"><img id="welcomeRing1Img" class="shrink" src="./assets/WelcomeRing1.png" width="200px" height="200px"/></div>';
-        div.innerHTML += '<div id="welcomeRing2" class="welcomeRing2"><img id="welcomeRing2Img" class="shrink" src="./assets/WelcomeRing2.png" width="300px" height="300px"/></div>';
-        div.innerHTML += '<div id="welcomeRing3" class="welcomeRing3"><img id="WelcomeRing3Img" class="shrink" src="./assets/WelcomeRing3.png" width="400px" height="400px"/></div>';
+        div.innerHTML += '<div id="WelcomeRingLock" class="WelcomeRingLock"><img id="WelcomeRingLockImg" class="shrink" src="./assets/WelcomeRingLock.png" alt="WelcomeRingLock" width="40px" height="40px"/></div>';
+        div.innerHTML += '<div id="welcomeRing1" class="welcomeRing1"><img id="welcomeRing1Img" class="shrink" src="./assets/WelcomeRing1.png" width="200px" alt="WelcomeRing1" height="200px"/></div>';
+        div.innerHTML += '<div id="welcomeRing2" class="welcomeRing2"><img id="welcomeRing2Img" class="shrink" src="./assets/WelcomeRing2.png" alt="WelcomeRing2" width="300px" height="300px"/></div>';
+        div.innerHTML += '<div id="welcomeRing3" class="welcomeRing3"><img id="WelcomeRing3Img" class="shrink" src="./assets/WelcomeRing3.png" alt="WelcomeRing3" width="400px" height="400px"/></div>';
     }
 
     const WelcomeRingLockImg = document.getElementById("WelcomeRingLockImg");
@@ -680,9 +734,9 @@
 
     function MianRig() {
         const div = document.querySelector('.main-rig');
-        div.innerHTML += '<div id="mainrig1" class="mainrig"><img id="mainrig1Img" src="./assets/bgAnim1.png" width="150px" height="150px"/></div>';
-        div.innerHTML += '<div id="mainrig2" class="mainrig2"><img id="mainrig2Img" src="./assets/bgAnim2.png" width="400px" height="400px"/></div>';
-        div.innerHTML += '<div id="mainrig3" class="mainrig3"><img id="mainrig3Img" src="./assets/bgAnim3.png" width="500px" height="500px"/></div>';      
+        div.innerHTML += '<div id="mainrig1" class="mainrig"><img id="mainrig1Img" src="./assets/bgAnim1.png" alt="bgAnim1" width="150px" height="150px"/></div>';
+        div.innerHTML += '<div id="mainrig2" class="mainrig2"><img id="mainrig2Img" src="./assets/bgAnim2.png" alt="bgAnim2" width="400px" height="400px"/></div>';
+        div.innerHTML += '<div id="mainrig3" class="mainrig3"><img id="mainrig3Img" src="./assets/bgAnim3.png" alt="bgAnim3" width="500px" height="500px"/></div>';      
     }
 
     const MainRing1Img = document.getElementById("mainrig1Img");
@@ -704,7 +758,7 @@
     SinGraph();
 
     function SinGraph(){
-        document.querySelector('.singraph').innerHTML += '<img id="singraphImg" src="./assets/singraph.png" width="300%" height="50px"/>';       
+        document.querySelector('.singraph').innerHTML += '<img id="singraphImg" src="./assets/singraph.png" alt="singraph" width="300%" height="50px"/>';       
     }
     
     let move = 0;
@@ -721,8 +775,6 @@
     
     movesingraph();
  
-
-
     function FooterMainText(){
         document.querySelector('.FooterTextContainer').innerHTML += '<div id="FooterMainText1" class="FooterMainText1"><h2 id="FooterMainText1H2">egenius-platform</h2></div>';            
         document.querySelector('.FooterTextContainer').innerHTML += '<div id="FooterMainText2" class="FooterMainText2"><h2 id="FooterMainText2H2">Husnain@Egenius.co</h2></div>';            
@@ -794,7 +846,7 @@
     });
     function RemoveWelcomeGrid(){
         document.querySelector('.main-container').innerHTML = "";
-        document.querySelector('.main-container').innerHTML += '<div id="MainDiv" class="MainDiv"><img id="MainDivImg" src="./assets/CarbonFiber.jpg" width="100%" height="100%"/></div>';
+        document.querySelector('.main-container').innerHTML += '<div id="MainDiv" class="MainDiv"><img id="MainDivImg" src="./assets/CarbonFiber.jpg" alt="CarbonFiber" width="100%" height="100%"/></div>';
         document.querySelector('.main-container').innerHTML += '<div id="Navbar" class="Navbar"><ul><li class="li"><a id="Navbarlist"  type="button" onclick="HideMainGrid(\'https://egenius.vercel.app\')">About Me</a></li></ul></div>';
         document.querySelector("#Navbar").style.backgroundImage = "url('./assets/navbarbg.png')";
         setTimeout(function() {
@@ -803,50 +855,50 @@
     }
     function ShowMainGrid(){
         document.querySelector('.MainRigContainer').style.display = 'block';
-        document.querySelector('.main-container').innerHTML += '<div id="fauxBG" class="fauxBGMain fauxBG"><img id="fauxBGImg" src="./assets/fauxBG.png" width="100%" height="100%"/></div>';            
+        document.querySelector('.main-container').innerHTML += '<div id="fauxBG" class="fauxBGMain fauxBG"><img id="fauxBGImg" src="./assets/fauxBG.png" alt="fauxBG" width="100%" height="100%"/></div>';            
         setTimeout(function() {
-            document.querySelector('.main-container').innerHTML += '<div id="fauxBG1" class="fauxBGMain fauxBG1"><img id="fauxBG1Img" src="./assets/fauxBG1.png" width="100%" height="100%"/></div>';            
+            document.querySelector('.main-container').innerHTML += '<div id="fauxBG1" class="fauxBGMain fauxBG1"><img id="fauxBG1Img" src="./assets/fauxBG1.png" alt="fauxBG1" width="100%" height="100%"/></div>';            
         }, 500);
         setTimeout(function() {
-            document.querySelector('.main-container').innerHTML += '<div id="fauxBG2" class="fauxBGMain fauxBG2"><img id="fauxBG2Img" src="./assets/fauxBG2.png" width="100%" height="100%"/></div>';            
+            document.querySelector('.main-container').innerHTML += '<div id="fauxBG2" class="fauxBGMain fauxBG2"><img id="fauxBG2Img" src="./assets/fauxBG2.png" alt="fauxBG2" width="100%" height="100%"/></div>';            
         }, 1000);
         setTimeout(function() {
             document.querySelector('.fauxBG2').style.display = 'none';
-            document.querySelector('.main-container').innerHTML += '<div id="fauxBG3" class="fauxBGMain fauxBG3"><img id="fauxBG3Img" src="./assets/fauxBG3.png" width="100%" height="100%"/></div>';            
+            document.querySelector('.main-container').innerHTML += '<div id="fauxBG3" class="fauxBGMain fauxBG3"><img id="fauxBG3Img" src="./assets/fauxBG3.png" alt="fauxBG3" width="100%" height="100%"/></div>';            
         }, 1500);
         setTimeout(function() {
             document.querySelector('.fauxBG3').style.display = 'none';
-            document.querySelector('.main-container').innerHTML += '<div id="fauxBG4" class="fauxBGMain fauxBG4"><img id="fauxBG4Img" src="./assets/fauxBG4.png" width="100%" height="100%"/></div>';            
+            document.querySelector('.main-container').innerHTML += '<div id="fauxBG4" class="fauxBGMain fauxBG4"><img id="fauxBG4Img" src="./assets/fauxBG4.png" alt="fauxBG4" width="100%" height="100%"/></div>';            
         }, 2000);
         setTimeout(function() {
             document.querySelector('.fauxBG4').style.display = 'none';
-            document.querySelector('.main-container').innerHTML += '<div id="fauxBG5" class="fauxBGMain fauxBG5"><img id="fauxBG5Img" src="./assets/fauxBG5.png" width="100%" height="100%"/></div>';            
+            document.querySelector('.main-container').innerHTML += '<div id="fauxBG5" class="fauxBGMain fauxBG5"><img id="fauxBG5Img" src="./assets/fauxBG5.png" alt="fauxBG5" width="100%" height="100%"/></div>';            
         }, 2500);
         setTimeout(function() {
             document.querySelector('.fauxBG5').style.display = 'none';
-            document.querySelector('.main-container').innerHTML += '<div id="fauxBG" class="fauxBGMain fauxBG"><img id="fauxBG6Img" src="./assets/fauxBG.png" width="100%" height="100%"/></div>';     
+            document.querySelector('.main-container').innerHTML += '<div id="fauxBG" class="fauxBGMain fauxBG"><img id="fauxBG6Img" src="./assets/fauxBG.png" alt="fauxBG" width="100%" height="100%"/></div>';     
             ShowFooter();
         }, 3000);
     }
     function ShowFooter(){
         document.querySelector('.main-container').innerHTML += '<div id="footerBG" class="footerBG"><img id="footerBG" src="./assets/footerBG.png" width="100%" height="100px"/></div>';            
         setTimeout(function() {
-            document.querySelector('.main-container').innerHTML += '<div id="footerGraph" class="footerGraph"><img id="footerGraph" src="./assets/footerGraph.png" width="50px" height="100px"/></div>';            
+            document.querySelector('.main-container').innerHTML += '<div id="footerGraph" class="footerGraph"><img id="footerGraph" src="./assets/footerGraph.png" alt="footerGraph" width="50px" height="100px"/></div>';            
         }, 500);
         setTimeout(function() {
-            document.querySelector('.main-container').innerHTML += '<div id="footerGraph1" class="footerGraph1 footerGraph"><img id="footerGraph1" src="./assets/footerGraph.png" width="50px" height="100px"/></div>';            
+            document.querySelector('.main-container').innerHTML += '<div id="footerGraph1" class="footerGraph1 footerGraph"><img id="footerGraph1" src="./assets/footerGraph.png" alt="footerGraph" width="50px" height="100px"/></div>';            
         }, 600);
         setTimeout(function() {
-            document.querySelector('.main-container').innerHTML += '<div id="footerGraph2" class="footerGraph2 footerGraph"><img id="footerGraph2" src="./assets/footerGraph.png" width="50px" height="100px"/></div>';            
+            document.querySelector('.main-container').innerHTML += '<div id="footerGraph2" class="footerGraph2 footerGraph"><img id="footerGraph2" src="./assets/footerGraph.png" alt="footerGraph" width="50px" height="100px"/></div>';            
         }, 700);
         setTimeout(function() {
-            document.querySelector('.main-container').innerHTML += '<div id="footerGraph3" class="footerGraph3 footerGraph"><img id="footerGraph3" src="./assets/footerGraph.png" width="50px" height="100px"/></div>';            
+            document.querySelector('.main-container').innerHTML += '<div id="footerGraph3" class="footerGraph3 footerGraph"><img id="footerGraph3" src="./assets/footerGraph.png" alt="footerGraph" width="50px" height="100px"/></div>';            
         }, 800);
         setTimeout(function() {
-            document.querySelector('.main-container').innerHTML += '<div id="footerGraph4" class="footerGraph4 footerGraph"><img id="footerGraph4" src="./assets/footerGraph.png" width="50px" height="100px"/></div>';            
+            document.querySelector('.main-container').innerHTML += '<div id="footerGraph4" class="footerGraph4 footerGraph"><img id="footerGraph4" src="./assets/footerGraph.png" alt="footerGraph" width="50px" height="100px"/></div>';            
         }, 900);
         setTimeout(function() {
-            document.querySelector('.main-container').innerHTML += '<div id="footerGraph5" class="footerGraph5 footerGraph"><img id="footerGraph5" src="./assets/footerGraph.png" width="50px" height="100px"/></div>';            
+            document.querySelector('.main-container').innerHTML += '<div id="footerGraph5" class="footerGraph5 footerGraph"><img id="footerGraph5" src="./assets/footerGraph.png" alt="footerGraph" width="50px" height="100px"/></div>';            
             document.querySelector('.FooterTextContainer').style.display = 'block';
             ReverseFooter();
         }, 1000);
@@ -874,31 +926,31 @@
     }
     function ShowFootersticks(){
         setTimeout(function() {
-            document.querySelector('.main-container').innerHTML += '<div id="footerGraph" class="footerGraph"><img id="footerGraph" src="./assets/footerGraph.png" width="50px" height="100px"/></div>';            
+            document.querySelector('.main-container').innerHTML += '<div id="footerGraph" class="footerGraph"><img id="footerGraph" src="./assets/footerGraph.png" alt="footerGraph" width="50px" height="100px"/></div>';            
         }, 100);
         setTimeout(function() {
-            document.querySelector('.main-container').innerHTML += '<div id="footerGraph1" class="footerGraph1 footerGraph"><img id="footerGraph1" src="./assets/footerGraph.png" width="50px" height="100px"/></div>';            
+            document.querySelector('.main-container').innerHTML += '<div id="footerGraph1" class="footerGraph1 footerGraph"><img id="footerGraph1" src="./assets/footerGraph.png" alt="footerGraph" width="50px" height="100px"/></div>';            
         }, 200);
         setTimeout(function() {
-            document.querySelector('.main-container').innerHTML += '<div id="footerGraph2" class="footerGraph2 footerGraph"><img id="footerGraph2" src="./assets/footerGraph.png" width="50px" height="100px"/></div>';            
+            document.querySelector('.main-container').innerHTML += '<div id="footerGraph2" class="footerGraph2 footerGraph"><img id="footerGraph2" src="./assets/footerGraph.png" alt="footerGraph" width="50px" height="100px"/></div>';            
         }, 300);
         setTimeout(function() {
-            document.querySelector('.main-container').innerHTML += '<div id="footerGraph3" class="footerGraph3 footerGraph"><img id="footerGraph3" src="./assets/footerGraph.png" width="50px" height="100px"/></div>';            
+            document.querySelector('.main-container').innerHTML += '<div id="footerGraph3" class="footerGraph3 footerGraph"><img id="footerGraph3" src="./assets/footerGraph.png" alt="footerGraph" width="50px" height="100px"/></div>';            
         }, 400);
         setTimeout(function() {
-            document.querySelector('.main-container').innerHTML += '<div id="footerGraph4" class="footerGraph4 footerGraph"><img id="footerGraph4" src="./assets/footerGraph.png" width="50px" height="100px"/></div>';            
+            document.querySelector('.main-container').innerHTML += '<div id="footerGraph4" class="footerGraph4 footerGraph"><img id="footerGraph4" src="./assets/footerGraph.png" alt="footerGraph" width="50px" height="100px"/></div>';            
         }, 500);
         setTimeout(function() {
-            document.querySelector('.main-container').innerHTML += '<div id="footerGraph5" class="footerGraph5 footerGraph"><img id="footerGraph5" src="./assets/footerGraph.png" width="50px" height="100px"/></div>';            
+            document.querySelector('.main-container').innerHTML += '<div id="footerGraph5" class="footerGraph5 footerGraph"><img id="footerGraph5" src="./assets/footerGraph.png" alt="footerGraph" width="50px" height="100px"/></div>';            
             ShowMainGalary();
         }, 600);
     }
     function ShowMainGalary(){
-        document.querySelector('.main-container').innerHTML += '<div id="imageGalBorder" class="imageGalBorder"><div class="image-container position-relative"><img id="imageGalBorderImg" src="./assets/imageGalBorder.png" width="100%" height="100%"/></div></div>';                        
+        document.querySelector('.main-container').innerHTML += '<div id="imageGalBorder" class="imageGalBorder"><div class="image-container position-relative"><img id="imageGalBorderImg" src="./assets/imageGalBorder.png" alt="imageGalBorder" width="100%" height="100%"/></div></div>';                        
         document.querySelector('#imageGalBorder .image-container').innerHTML += '<div id="ContentContainer" class="ContentContainer"></div>';                        
         document.querySelector('#ContentContainer').innerHTML += '<h1 class="h1">Welcome To My Portfolio Website</h1>';  
         document.querySelector('#ContentContainer').innerHTML += '<h2 class="h2">The Place Where You Can Explore What i do.</h2>';  
-        document.querySelector('#ContentContainer').innerHTML += '<h2 class="h2">If You Have Any Query You Can Send Me a Message On This <a class="a" target="_blank" href="http://egeneus.co/contact-us" ">Reach Me</a> Or You Can Also Visit My Website <a class="a" target="_blank" href="http://egeneus.co/" >Egenius.co</a></h2>';    
+        document.querySelector('#ContentContainer').innerHTML += '<h2 class="h2">If You Have Any Query You Can Send Me a Message On This <a class="a" onclick="ShowContactForm() ">Reach Me</a> Or You Can Also Visit My Website <a class="a" target="_blank" href="http://egeneus.co/" >Egenius.co</a></h2>';    
     }
     function HideMainGrid(URL) {
         document.querySelector('.singraph').classList.add('hide_singraph');
@@ -954,6 +1006,91 @@
         }, 1500);
     }
     
+    function ShowContactForm() {
+        document.querySelector('.singraph').classList.add('hide_singraph');
+        document.querySelector('#footerBG').classList.add('hide_footerBG');
+        document.querySelectorAll('.footerGraph').forEach(element => {
+            element.classList.add('hide_footerGraph');
+        });
+        document.querySelector('#FooterMainText1').classList.add('hide_FooterMainText');
+        document.querySelector('#FooterMainText2').classList.add('hide_FooterMainText');
+        setTimeout(function() {
+            document.querySelector('#imageGalBorder').classList.add('hide_imageGalBorder');
+        }, 100);
+        setTimeout(function() {
+            document.querySelector('#Navbar').classList.add('hide_Navbar');
+        }, 1000);
+        setTimeout(function() {
+            document.querySelector('.main-rig').classList.add('hide_main-rig');
+            document.querySelector('.fauxBG5').style.display = 'block';
+            setTimeout(function() {
+                document.querySelector('.fauxBG5').style.display = 'none';
+                document.querySelector('.fauxBG4').style.display = 'block';
+            }, 500);
+            setTimeout(function() {
+                document.querySelector('.fauxBG4').style.display = 'none';
+                document.querySelector('.fauxBG3').style.display = 'block';
+            }, 1000);
+            setTimeout(function() {
+                document.querySelector('.fauxBG3').style.display = 'none';
+                document.querySelector('.fauxBG2').style.display = 'block';
+            }, 1500);
+            setTimeout(function() {
+                document.querySelector('.fauxBG2').style.display = 'none';
+                document.querySelector('.fauxBG1').style.display = 'block';
+            }, 2000);
+            setTimeout(function() {
+                document.querySelector('.fauxBG1').style.display = 'none';
+                document.querySelector('.fauxBG').style.display = 'block';
+            }, 2000);
+            setTimeout(function() {
+                document.querySelector('.fauxBG').style.display = 'none';
+                document.querySelector('.fauxBG1').style.top = '20%';
+                document.querySelector('.fauxBG1').style.display = 'block';
+                document.querySelector('.main-rig').classList.remove('hide_main-rig');
+                document.querySelector('.main-rig').classList.add('main-rig-placing');
+            }, 2500);
+            setTimeout(function() {
+                ContactFormCreater();
+            }, 3000);
+            
+        }, 1500);
+    }
+    
+    function ContactFormCreater(){
+        document.querySelector('#ContentContainer').innerHTML = '';
+       
+        setTimeout(function() {
+            document.querySelector('.FooterTextContainer').innerHTML = '';
+            document.querySelector('.FooterTextContainer').innerHTML += '<form method="POST" action="/forms-front/form-submit" onsubmit="formsubmit()"><div class="about-service-cards contact-form-container""></div></form> ';
+            document.querySelector('.about-service-cards').innerHTML += '<div class="about-service-card about-service-card1"></div><div class="about-service-card about-service-card2"></div><div class="about-service-card about-service-card3"></div><div class="about-service-card about-service-card4"></div>';
+
+            document.querySelector('.about-service-card1').innerHTML += '<h1>Contact Us</h1><p>Having any issue feel free to contact Us.</p>';
+            document.querySelector('.about-service-card2').innerHTML += '<input type="text" placeholder="Enter Your Name" id="fname" name="fname" value="" required>';
+            document.querySelector('.about-service-card3').innerHTML += '<input type="email" placeholder="Enter Your Email" id="email" name="email" autocomplete="test@gmail.com" value="" required>';
+            document.querySelector('.about-service-card4').innerHTML += '<textarea type="text" placeholder="Enter Message Here" name="message" id="message" rows="6" required=""></textarea> <input type="hidden" name="form_type" id="form_type" value="contact_form">';
+            document.querySelector('.about-service-cards').innerHTML += '<h2 type="submit" class="about-service-button">Submit</h2>';
+            setTimeout(function() {
+                document.querySelector('.about-service-card1').classList.add('anim-about-service-card1');
+            }, 500);
+            setTimeout(function() {
+                document.querySelector('.about-service-card2').classList.add('anim-about-service-card2');
+            }, 1000);
+            setTimeout(function() {
+                document.querySelector('.about-service-card3').classList.add('anim-about-service-card3');
+            }, 1500);
+            setTimeout(function() {
+                document.querySelector('.about-service-card4').classList.add('anim-about-service-card4');
+            }, 2000);
+            setTimeout(function() {
+                document.querySelector('.about-service-button').classList.add('anim-about-service-button');
+            }, 2500);
+        }, 3500);
+    }
+
+    function formsubmit(){
+        alert('form submit');
+    }
     function AboutMainCreater(){
         document.querySelector('#imageGalBorder').classList.remove('hide_imageGalBorder');
         document.querySelector('#ContentContainer').innerHTML = '';
@@ -974,7 +1111,7 @@
 
             document.querySelector('.about-service-cards').innerHTML += '<div class="about-service-card about-service-card1"></div><div class="about-service-card about-service-card2"></div><div class="about-service-card about-service-card3"></div><div class="about-service-card about-service-card4"></div>';
             document.querySelectorAll('.about-service-card').forEach(element => {
-                element.innerHTML += '<img src="./assets/imageGalBorder.png" alt="" height="100%" width="100%" class="img-card"/>'
+                element.innerHTML += '<img src="./assets/imageGalBorder.png" alt="imageGalBorder" alt="" height="100%" width="100%" class="img-card"/>'
             });
             document.querySelector('.about-service-card1').innerHTML += '<h2>React Development</h2><p class="typewritter">As a React Developer, We created user-friendly and high-performance web applications with advance libraries and Third Party API.</p>';
             document.querySelector('.about-service-card2').innerHTML += '<h2>Laravel Development</h2><p class="typewritter">As a Laravel Developer, We specialize in building robust, scalable, high-performance, user-friendly and secure web applications.</p>';
