@@ -181,14 +181,13 @@
     #AnimationnContainer .imageGalBorder
     {
         position: absolute;
-        top: 70px;
+        top: 20%;
         left: 0;
         right: 0;
         margin: 0 auto;
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 70%;
         width: 70%;
         animation: NavFirst 2s ease forwards;
         z-index: 5;
@@ -206,14 +205,9 @@
         100% { opacity: 0;  transform: scale(2);}
     }
     #AnimationnContainer #imageGalBorder .image-container #ContentContainer{
-        position: absolute;
-        top: 20px;
         width: 90%;
         height: max-content;
-        left: 0;
-        right: 0;
-        margin: 20px 30px;
-        z-index: 20;
+        margin: 40px;
         backdrop-filter: blur(10px);
         padding: 20px;
     }
@@ -323,7 +317,7 @@
         display: none;
     }
     .about-main-container .about-right-one{
-        width: 90%;
+        width: 100%;
     }
     #AnimationnContainer .about-main-container .about-data h2{
         margin-bottom: 20px;
@@ -445,7 +439,7 @@
         background-color: transparent;
         border: 1px solid #73d8fd;
         text-align: center;
-        color: #73d8fd;
+        color: #fff;
         border-radius: 5px;
         font-size: 20px;
         font-family: 'Neogrey';
@@ -507,11 +501,6 @@
         0% { left: 0;}
         100% { left: 110%;}
     }
-    .imageGalBorder #imageGalBorderImg{
-        position: absolute;
-        top: 0;
-        left: 0;
-    }
 
     #AnimationnContainer .service-card-container .hide-anim-service-button,
     #AnimationnContainer .service-card-container .hide-anim-service-card1,
@@ -545,6 +534,25 @@
     #AnimationnContainer .contact-form-container .about-service-card:nth-child(1)::after{
         height: 0px;
     }
+    #AnimationnContainer .contact-form-container .about-service-button{
+        font-family: 'Neogrey';
+        color: #73d8fd;
+        font-size: 40px;
+        transition: all 0.5 ease-in-out;
+    }
+    #AnimationnContainer .contact-form-container .about-service-button:hover{
+        color: #fff;
+    }
+    input:-internal-autofill-selected {
+        background-color: transparent !important;
+    }
+    #AnimationnContainer #imageGalBorderImg{
+            position: absolute;
+            top: 0px;
+            height: 100%;
+            width: 100%;
+            left: 0;
+        }
     @media only screen and (max-width: 767.98px){
         #AnimationnContainer .about-service-cards {
             top: 15%;
@@ -592,14 +600,10 @@
         }
         #AnimationnContainer .imageGalBorder{
             width: 90%;
-            height: 70%;
         }
         #AnimationnContainer  #WelcomeRing3Img{
             height: 350px;
             width: 350px;
-        }
-        #AnimationnContainer #imageGalBorderImg{
-            height: 60vh;
         }
         #AnimationnContainer #footerBG{
             height: 50px;
@@ -1049,6 +1053,9 @@
                 document.querySelector('.fauxBG1').style.display = 'block';
                 document.querySelector('.main-rig').classList.remove('hide_main-rig');
                 document.querySelector('.main-rig').classList.add('main-rig-placing');
+                document.querySelector('#Navbar').classList.remove('hide_Navbar');
+                document.querySelector('#Navbar').innerHTML = "";
+                document.querySelector('#Navbar').innerHTML +='<ul><li class="li"><a id="Navbarlist"  type="button" onclick="HideContactCreator()">Service</a></li></ul>';
             }, 2500);
             setTimeout(function() {
                 ContactFormCreater();
@@ -1062,14 +1069,14 @@
        
         setTimeout(function() {
             document.querySelector('.FooterTextContainer').innerHTML = '';
-            document.querySelector('.FooterTextContainer').innerHTML += '<form method="POST" action="/forms-front/form-submit" onsubmit="formsubmit()"><div class="about-service-cards contact-form-container""></div></form> ';
+            document.querySelector('.FooterTextContainer').innerHTML += '<div class="about-service-cards contact-form-container"></div>';
             document.querySelector('.about-service-cards').innerHTML += '<div class="about-service-card about-service-card1"></div><div class="about-service-card about-service-card2"></div><div class="about-service-card about-service-card3"></div><div class="about-service-card about-service-card4"></div>';
 
             document.querySelector('.about-service-card1').innerHTML += '<h1>Contact Us</h1><p>Having any issue feel free to contact Us.</p>';
             document.querySelector('.about-service-card2').innerHTML += '<input type="text" placeholder="Enter Your Name" id="fname" name="fname" value="" required>';
             document.querySelector('.about-service-card3').innerHTML += '<input type="email" placeholder="Enter Your Email" id="email" name="email" autocomplete="test@gmail.com" value="" required>';
             document.querySelector('.about-service-card4').innerHTML += '<textarea type="text" placeholder="Enter Message Here" name="message" id="message" rows="6" required=""></textarea> <input type="hidden" name="form_type" id="form_type" value="contact_form">';
-            document.querySelector('.about-service-cards').innerHTML += '<h2 type="submit" class="about-service-button">Submit</h2>';
+            document.querySelector('.about-service-cards').innerHTML += '<button onclick="HideContactCreator()" class="about-service-button">Submit</button>';
             setTimeout(function() {
                 document.querySelector('.about-service-card1').classList.add('anim-about-service-card1');
             }, 500);
@@ -1085,21 +1092,87 @@
             setTimeout(function() {
                 document.querySelector('.about-service-button').classList.add('anim-about-service-button');
             }, 2500);
+        }, 1000);
+    }
+    
+    function HideContactCreator(){
+        setTimeout(function() {
+            document.querySelector('.about-service-button').classList.add('hide-anim-about-service-button');
+        }, 500);
+        setTimeout(function() {
+            document.querySelector('.about-service-card4').classList.add('hide-anim-about-service-card4');
+        }, 1000);
+        setTimeout(function() {
+            document.querySelector('.about-service-card3').classList.add('hide-anim-about-service-card3');
+        }, 1500);
+        setTimeout(function() {
+            document.querySelector('.about-service-card2').classList.add('hide-anim-about-service-card2');
+        }, 2000);
+        setTimeout(function() {
+            document.querySelector('.about-service-card1').classList.add('hide-anim-about-service-card1');
+        }, 2500);
+        setTimeout(function() {
+            document.querySelector('.FooterTextContainer').innerHTML = '';
+            document.querySelector('#imageGalBorder').classList.remove('move-imageGalBorder');
+            document.querySelector('#imageGalBorder').classList.remove('shrink-imageGalBorder');
+            document.querySelector('#imageGalBorder').classList.add('hide_imageGalBorder');
+        }, 3000);
+        setTimeout(function() {
+            document.querySelector('#Navbar').classList.add('hide_Navbar');
         }, 3500);
+        setTimeout(function() {
+            document.querySelector('.main-rig').classList.add('hide_main-rig');
+        }, 4000);
+        setTimeout(function() {
+            document.querySelector('.fauxBG5').style.display = 'block';
+            setTimeout(function() {
+                document.querySelector('.fauxBG5').style.display = 'none';
+                document.querySelector('.fauxBG4').style.display = 'block';
+            }, 500);
+            setTimeout(function() {
+                document.querySelector('.fauxBG4').style.display = 'none';
+                document.querySelector('.fauxBG3').style.display = 'block';
+            }, 1000);
+            setTimeout(function() {
+                document.querySelector('.fauxBG3').style.display = 'none';
+                document.querySelector('.fauxBG2').style.display = 'block';
+            }, 1500);
+            setTimeout(function() {
+                document.querySelector('.fauxBG2').style.display = 'none';
+                document.querySelector('.fauxBG1').style.display = 'block';
+            }, 2000);
+            setTimeout(function() {
+                document.querySelector('.fauxBG1').style.display = 'none';
+                document.querySelector('.fauxBG').style.display = 'block';
+            }, 2000);
+            setTimeout(function() {
+                document.querySelector('.fauxBG').style.display = 'none';
+                document.querySelector('.fauxBG2').style.display = 'block';
+                document.querySelector('.main-rig').classList.remove('hide_main-rig');
+                document.querySelector('.main-rig').classList.remove('main-rig-placing');
+                document.querySelector('#Navbar').classList.remove('hide_Navbar');
+                document.querySelector('#Navbar').innerHTML = "";
+                document.querySelector('#Navbar').innerHTML +='<ul><li class="li"><a id="Navbarlist"  type="button" onclick="ReturnToMain(\'https://egenius.vercel.app/home\')">Main</a></li></ul>';
+            }, 2500);
+            setTimeout(function() {
+                document.querySelector('#imageGalBorder').classList.remove('hide_imageGalBorder');
+                document.querySelector('#imageGalBorder').classList.remove('imageGalBorder');
+                document.querySelector('#imageGalBorder').classList.add('Our-Services-wrapper');
+                document.querySelector('#imageGalBorder').innerHTML = '';
+                document.querySelector('#imageGalBorder').innerHTML += '<div class="service-main-container"></div>';
+                ServiceMainCreater();
+            }, 3000);
+            
+        }, 4500);
     }
 
-    function formsubmit(){
-        alert('form submit');
-    }
     function AboutMainCreater(){
         document.querySelector('#imageGalBorder').classList.remove('hide_imageGalBorder');
         document.querySelector('#ContentContainer').innerHTML = '';
-        document.querySelector('#imageGalBorderImg').style.height = '80vh';
         document.querySelector('#ContentContainer').innerHTML = '<div class="about-main-container" onclick="ShowMyDetails()"></div> ';
-        document.querySelector('.about-main-container').innerHTML += '<div class="about-right-one"></div><div class="about-left-one"></div> '
+        document.querySelector('.about-main-container').innerHTML += '<div class="about-right-one"></div> '
         document.querySelector('.about-right-one').innerHTML += 
         '<div class="about-data"><h2>Mohammad Husnain</h2><h2>Full Stack Developer</h2><h2>React , Laravel & CMS Development with a strong grip on front-end technologies.</h2><h2>Skills:</h2><h2>HTML5, CSS3, Bootstrap5, Tailwind, SASS, Javascript, PHP, Jquery and SQL.</h2><h2>Reach Me At <a href="http://egeneus.co/" target="_blank"> @Egenius.co.</a></h2></div> '
-        document.querySelector('.about-left-one').innerHTML += '<div class="about-image-container"><img src="./assets/about-me.jpeg" alt="about me" height="100%" width="100%" class=""/></div> '
         setTimeout(function() {
             document.querySelector('#imageGalBorder').classList.add('shrink-imageGalBorder');
         }, 3000);
